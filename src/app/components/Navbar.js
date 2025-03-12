@@ -13,6 +13,7 @@ const Navbar = () => {
           <li>Templates</li>
           <li>About Us</li>
           <li>Contact Us</li>
+          <li>Contact </li>
         </ul>
       </div>
       <div className="flex gap-2">
