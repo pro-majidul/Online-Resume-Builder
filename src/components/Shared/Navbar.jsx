@@ -6,11 +6,11 @@ const Navbar = () => {
 
   const navBar = <>
 
-  <a href="/"><li>Home</li></a>
-  <a href=""><li>My Resume</li></a>
-  <a href=""><li>Templates</li></a>
-  <a href=""><li>Contact Us</li></a>
-  <a href=""><li>Contact Us</li></a>
+  <a href="" className="hover:text-white"><li>Home</li></a>
+  <a href="" className="hover:text-white"><li>My Resume</li></a>
+  <a href="" className="hover:text-white"><li>Templates</li></a>
+  <a href="" className="hover:text-white"><li>Contact Us</li></a>
+  <a href="" className="hover:text-white"><li>Contact Us</li></a>
   
   </>
 
@@ -21,14 +21,14 @@ const Navbar = () => {
       <div>
         <a href="/">
         <h1 className="font-black text-2xl  ">
-          Resume<span className="font-extrabold text-gray-400">Builder</span>
+          Resume<span className="font-extrabold text-gray-300">Builder</span>
         </h1>
         </a>
       </div>
 
       {/* Page route */}
       <div className="hidden md:block">
-        <ul className="flex gap-3 text-gray-300">
+        <ul className="flex gap-3 text-gray-300 ">
           {navBar}
         </ul>
       </div>
