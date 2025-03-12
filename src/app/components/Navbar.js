@@ -15,9 +15,10 @@ const Navbar = () => {
           <li>Contact Us</li>
         </ul>
       </div>
-      <div>
+      <div className="flex gap-2">
         <button className="border-2 p-5">Sign In</button>
-        <button className="border-2 p-5">Sign Up</button>
+
+        <button className="border-2 p-5 m-10 bg-amber-300">Sign Up</button>
       </div>
     </nav>
   );
