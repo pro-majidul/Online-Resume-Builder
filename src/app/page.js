@@ -7,6 +7,9 @@ export default function Home() {
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
        <h1 className=" text-6xl font-bold">Virtual Resume Builder</h1>
        <h3>Please follow this rood</h3>
+       <h3>
+        Team Avengers
+       </h3>
       </main>
      
     </div>
