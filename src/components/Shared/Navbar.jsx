@@ -9,7 +9,7 @@ const Navbar = () => {
   <a href="" className="hover:text-white"><li>Home</li></a>
   <a href="" className="hover:text-white"><li>My Resume</li></a>
   <a href="" className="hover:text-white"><li>Templates</li></a>
-  <a href="" className="hover:text-white"><li>Contact Us</li></a>
+  <a href="" className="hover:text-white"><li>About Us</li></a>
   <a href="" className="hover:text-white"><li>Contact Us</li></a>
   
   </>
