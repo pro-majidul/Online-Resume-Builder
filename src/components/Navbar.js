@@ -47,7 +47,7 @@ const Navbar = () => {
 
         {/* Sign up/in Button */}
         <div>
-          {user ? (
+          {!user ? (
             <button className="px-4 py-1 border-2 rounded-3xl border-rose-600">Sign out</button>
           ) : (
             <button className="px-4 py-1 border-2 rounded-3xl border-rose-600">Sign up</button>
