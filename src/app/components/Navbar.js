@@ -1,24 +1,58 @@
+import Image from "next/image";
+import Link from "next/link";
+// import navlogo from './navlogo.png'
 import React from "react";
-
 const Navbar = () => {
   return (
-    <nav className="flex items-center my-5 justify-between w-full max-w-7xl mx-auto">
+    <nav className="flex items-center my-5 justify-between w-full max-w-7xl mx-auto px-6">
       <div>
-        <h3 className="text-3xl font-bold">Resume Maker</h3>
+        <h3 className="md:text-3xl text-xl font-bold flex items-center">
+          <Image src="/navlogo.png" alt="Logo" width={40} height={20}></Image>{" "}
+          Resume Maker{" "}
+        </h3>
       </div>
       <div>
         <ul className="flex items-center justify-center gap-5">
-          <li>Home</li>
-          <li>My Resume</li>
-          <li>Templates</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
-          <li>Contact </li>
+          <li>
+            <Link className="text-xl hover:text-gray-800" href="/">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link className="text-xl hover:text-gray-800" href="/my-resume">
+              My Resume
+            </Link>
+          </li>
+          <li>
+            <Link className="text-xl hover:text-gray-800" href="/templates">
+              Templates
+            </Link>
+          </li>
+          <li>
+            <Link className="text-xl hover:text-gray-800" href="/about">
+              About Us
+            </Link>
+          </li>
+          <li>
+            <Link className="text-xl hover:text-gray-800" href="/contact">
+              Contact Us
+            </Link>
+          </li>
         </ul>
       </div>
-      <div className="flex gap-2">
-        <button className="border-2 p-2 m-10 bg-amber-300">Sign In</button>
-        <button className="border-2 p-2 m-10 bg-amber-300">Sign Up</button>
+      <div className="space-x-2">
+        <button
+          type="button"
+          className="px-8 py-3 font-semibold rounded-full dark:bg-gray-800 dark:text-gray-100"
+        >
+          Sign In
+        </button>
+        <button
+          type="button"
+          className="px-8 py-3 font-semibold rounded-full dark:bg-gray-800 dark:text-gray-100"
+        >
+          Sign Up
+        </button>
       </div>
     </nav>
   );
