@@ -24,7 +24,7 @@ const ContactUs = () => {
 
         {/* Right - Image */}
         <div className="w-full md:w-1/2 flex justify-center">
-          <Image src="/contactus1.svg" height={300} width={400} alt="Contact Illustration" />
+          <Image src="/contactus2.svg" height={200} width={300} alt="Contact Illustration" />
         </div>
       </div>
 
