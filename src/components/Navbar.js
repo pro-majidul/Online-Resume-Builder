@@ -1,60 +1,58 @@
-import Image from "next/image";
+"use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
+
 const Navbar = () => {
+  const pathname = usePathname();
+  const user = 1;
+
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "My Resume", path: "/my-resume" },
+    { name: "Templates", path: "/templates" },
+    { name: "About Us", path: "/about", hidden: "lg:block" },
+    { name: "Contact Us", path: "/contact" },
+  ];
+
   return (
-    <nav className="flex items-center my-5 justify-between w-full max-w-7xl mx-auto px-6">
-      <div className="flex items-center">
-        <Image src="/navlogo.png" alt="Logo" width={40} height={20}></Image>
-        <Link
-          href="/"
-          className="md:text-3xl text-xl font-bold  hover:text-purple-600"
-        >
-          Resume Maker
-        </Link>
-      </div>
-      <div>
-        <ul className="flex items-center justify-center gap-5">
-          <li>
-            <Link className="text-xl hover:text-purple-600" href="/">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link className="text-xl hover:text-purple-600" href="/myResume">
-              My Resume
-            </Link>
-          </li>
-          <li>
-            <Link className="text-xl hover:text-purple-600" href="/resumeTemplates">
-              Templates
-            </Link>
-          </li>
-          <li>
-            <Link className="text-xl hover:text-purple-600" href="/aboutPage">
-              About Us
-            </Link>
-          </li>
-          <li>
-            <Link className="text-xl hover:text-purple-600" href="/contactPage">
-              Contact Us
-            </Link>
-          </li>
-        </ul>
-      </div>
-      <div className="space-x-2">
-        <button
-          type="button"
-          className="px-8 py-3 font-semibold rounded-full dark:bg-gray-800 hover:text-purple-600 dark:text-gray-100"
-        >
-          Sign In
-        </button>
-        <button
-          type="button"
-          className="px-8 py-3 font-semibold rounded-full dark:bg-gray-800 hover:text-purple-600 dark:text-gray-100"
-        >
-          Sign Up
-        </button>
+    <nav className="bg-black text-white py-4">
+      <div className="flex justify-between items-center gap-3 w-11/12 mx-auto">
+        {/* Logo */}
+        <div>
+          <Link href="/">
+            <h1 className="text-xl font-bold">
+              Resume<span className="font-extrabold">Builder</span>
+            </h1>
+          </Link>
+        </div>
+
+        {/* Navigation Links */}
+        <div className="hidden md:block">
+          <ul className="flex items-center gap-1">
+            {navLinks.map(({ name, path, hidden }) => (
+              <li key={path} className={hidden}>
+                <Link
+                  href={path}
+                  className={`text-xl px-4 py-2 rounded-lg transition-all duration-300 ${
+                    pathname === path ? "bg-white/20 text-white" : "text-gray-300 hover:text-rose-800"
+                  }`}
+                >
+                  {name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Sign up/in Button */}
+        <div>
+          {!user ? (
+            <button className="px-4 py-1 border-2 rounded-3xl border-rose-600">Sign out</button>
+          ) : (
+            <button className="px-4 py-1 border-2 rounded-3xl border-rose-600">Sign up</button>
+          )}
+        </div>
       </div>
     </nav>
   );
