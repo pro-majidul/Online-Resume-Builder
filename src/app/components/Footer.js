@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -21,54 +22,34 @@ const Footer = () => {
             </a>
           </div>
           <div className="col-span-6 text-center md:text-left md:col-span-3">
-            <p className="pb-1 text-lg font-medium">Category</p>
-            <ul>
-              <li>
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  className="hover:dark:text-violet-600"
-                >
-                  Link
-                </a>
-              </li>
-              <li>
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  className="hover:dark:text-violet-600"
-                >
-                  Link
-                </a>
-              </li>
-              <li>
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  className="hover:dark:text-violet-600"
-                >
-                  Link
-                </a>
-              </li>
-              <li>
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  className="hover:dark:text-violet-600"
-                >
-                  Link
-                </a>
-              </li>
-              <li>
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  className="hover:dark:text-violet-600"
-                >
-                  Link
-                </a>
-              </li>
-            </ul>
+            <p className="pb-1 text-lg font-medium underline underline-offset-8 decoration-2 hover:text-purple-600">Quick Links</p>
+            <ul className="space-y-1">
+          <li>
+            <Link className="text-xl hover:text-purple-600" href="/">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link className="text-xl hover:text-purple-600" href="/my-resume">
+              My Resume
+            </Link>
+          </li>
+          <li>
+            <Link className="text-xl hover:text-purple-600" href="/templates">
+              Templates
+            </Link>
+          </li>
+          <li>
+            <Link className="text-xl hover:text-purple-600" href="/about">
+              About Us
+            </Link>
+          </li>
+          <li>
+            <Link className="text-xl hover:text-purple-600" href="/contact">
+              Contact Us
+            </Link>
+          </li>
+        </ul>
           </div>
           <div className="col-span-6 text-center md:text-left md:col-span-3">
             <p className="pb-1 text-lg font-medium">Category</p>
