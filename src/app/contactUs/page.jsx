@@ -24,7 +24,8 @@ const ContactUs = () => {
 
         {/* Right - Image */}
         <div className="w-full md:w-1/2 flex justify-center">
-          <Image src="/contactus2.svg" height={200} width={300} alt="Contact Illustration" />
+          <Image src="/contactus1.svg" height={200} width={300} alt="Contact main" />
+          
         </div>
       </div>
 
@@ -39,6 +40,7 @@ const ContactUs = () => {
           </p>
 
           <form className="space-y-4" onSubmit={handleContactForm}>
+            <input type="text" name="name" placeholder="Enter your name" />
             <label className="block">
               <span className="text-gray-700">Your Name</span>
               <input
