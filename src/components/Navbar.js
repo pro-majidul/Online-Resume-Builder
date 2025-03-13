@@ -10,7 +10,7 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "My Resume", path: "/my-resume" },
-    { name: "Templates", path: "/templates" },
+    { name: "Templates", path: "/resumeTemplates" },
     { name: "About Us", path: "/aboutPage", hidden: "lg:block" },
     { name: "Contact Us", path: "/contactPage" },
   ];
