@@ -17,9 +17,8 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="flex gap-2">
-        <button className="border p-2 ">Sign In</button>
-
-        <button className="border p-2  bg-amber-300">Sign Up</button>
+        <button className="border-2 p-2 m-10 bg-amber-300">Sign In</button>
+        <button className="border-2 p-2 m-10 bg-amber-300">Sign Up</button>
       </div>
     </nav>
   );
