@@ -9,10 +9,10 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "My Resume", path: "/my-resume" },
-    { name: "Templates", path: "/templates" },
-    { name: "About Us", path: "/about", hidden: "lg:block" },
-    { name: "Contact Us", path: "/contact" },
+    { name: "My Resume", path: "/myResume" },
+    { name: "Templates", path: "/resumeTemplates" },
+    { name: "About Us", path: "/aboutPage", hidden: "lg:block" },
+    { name: "Contact Us", path: "/contactPage" },
   ];
 
   return (
@@ -22,7 +22,7 @@ const Navbar = () => {
         <div>
           <Link href="/">
             <h1 className="text-xl font-bold">
-              Resume<span className="font-extrabold">Builder</span>
+              Resume<span className="font-extrabold">Maker</span>
             </h1>
           </Link>
         </div>
