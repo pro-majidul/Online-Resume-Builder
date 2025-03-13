@@ -12,7 +12,7 @@ const Navbar = () => {
     { name: "My Resume", path: "/my-resume" },
     { name: "Templates", path: "/templates" },
     { name: "About Us", path: "/about", hidden: "lg:block" },
-    { name: "Contact Us", path: "/contactUs" },
+    { name: "Contact Us", path: "/contactPage" },
   ];
 
   return (
