@@ -11,7 +11,7 @@ const Navbar = () => {
     { name: "Home", path: "/" },
     { name: "My Resume", path: "/my-resume" },
     { name: "Templates", path: "/templates" },
-    { name: "About Us", path: "/about", hidden: "lg:block" },
+    { name: "About Us", path: "/aboutPage", hidden: "lg:block" },
     { name: "Contact Us", path: "/contactPage" },
   ];
 
