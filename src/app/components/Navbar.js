@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 const Navbar = () => {
   return (
-    <nav className="flex items-center my-5 justify-between w-full max-w-7xl mx-auto px-6">
+    <nav className="flex items-center my-5 justify-between container mx-auto px-6">
       <div className="flex items-center">
         <Image src="/navlogo.png" alt="Logo" width={40} height={20}></Image>
         <Link
