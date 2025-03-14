@@ -1,3 +1,4 @@
+import Features from "@/components/Features";
 import Hero from "@/components/Hero";
 import MeetTeam from "@/components/MeetTeam";
 
