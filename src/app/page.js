@@ -7,13 +7,18 @@ export default function Home() {
     <div className="">
       
      {/* Hero/Banner section */}
-      <div className="w-11/12 mx-auto">
+      <div className="container mx-auto px-6">
         <Hero></Hero>
       </div>
-    {/* Features Section */}
-    <div className="container mx-auto">
-      <Features/>
-    </div>
+      
+      <main>
+       <h1 className=" text-6xl font-bold">Virtual Resume Builder</h1>
+       <h3>Please follow this rood</h3>
+       <h3>
+        Team Avengers
+       </h3>
+       <MeetTeam></MeetTeam>
+      </main>
      
     </div>
   );
