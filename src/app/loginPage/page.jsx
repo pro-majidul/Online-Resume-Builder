@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { useForm } from 'react-hook-form'
 import { FaGoogle, FaGithub } from 'react-icons/fa'
 
-export default function Signup () {
+export default function Login () {
   const {
     register,
     handleSubmit,
@@ -12,7 +12,7 @@ export default function Signup () {
   } = useForm()
 
   const onSubmit = data => {
-    console.log('Signup Data:', data)
+    console.log('Login Data:', data)
   }
 
   return (
@@ -20,8 +20,8 @@ export default function Signup () {
       {/* left Section (Image) */}
       <div className='w-full max-w-md h-auto'>
         <Image
-          src='/signup.jpg'
-          alt='Signup Image'
+          src='/login.jpg'
+          alt='Login Image'
           width={300} // Increased width
           height={300} // Increased height
           className='w-full h-auto object-cover'
@@ -30,11 +30,11 @@ export default function Signup () {
       </div>
       {/* Right Section (form) */}
       <div className='bg-[#CBBAD9] shadow-sm p-8 rounded-4xl w-full max-w-md'>
-        <h2 className='font-bold text-[#18234E] text-4xl text-center'>
-          SignUp To Your Account
+        <h2 className='mx-1 font-bold text-[#18234E] text-4xl text-center'>
+          LogIn To Your Account
         </h2>
 
-        {/* Signup Form */}
+        {/* Login Form */}
         <form onSubmit={handleSubmit(onSubmit)} className='space-y-4'>
           <div>
             <label className='block ml-3 text-[#17224d]'>Username :</label>
@@ -86,9 +86,9 @@ export default function Signup () {
 
           <button
             type='submit'
-            className='bg-[#28DEC0] hover:bg-blue-700 mt-2 py-2 rounded-3xl w-full font-bold text-white transition'
+            className='bg-blue-700 hover:bg-blue-700 mt-2 py-2 rounded-3xl w-full font-bold text-white transition'
           >
-            Sign Up
+            Log In
           </button>
         </form>
 
@@ -107,10 +107,10 @@ export default function Signup () {
         <p className='mt-4 text-gray-600 text-center'>
           Already have an account?{' '}
           <a
-            href="loginPage"
+            href="signupPage"
             className='font-semibold text-blue-600 hover:underline'
           >
-            Log in
+            Sign Up
           </a>
         </p>
       </div>
