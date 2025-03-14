@@ -6,16 +6,14 @@ import f5 from './../../public/picture/brain.png'
 import f4 from './../../public/picture/f2.png'
 import f3 from './../../public/picture/cv.png'
 import { FaArrowRightLong } from "react-icons/fa6";
+import SectionHeading from "./shared/SectionHeading";
 
 const Features = () => {
     return (
         <div className="px-3">
             <section className="m-4 md:m-8 dark:bg-gray-100 dark:text-gray-800">
-	<div className="container p-4 mx-auto my-6 space-y-1 text-center">
-		<span className="text-xs font-semibold tracking-wider uppercase dark:text-violet-600">Our Main Features</span>
-		<h2 className="pb-3 text-2xl lg:w-3xl mx-auto font-bold md:text-4xl">Boost Your Hiring Chances by 45% with Our Smart Resume Maker!</h2>
-		<p className="text-xs md:text-lg">Craft professional resumes effortlessly with powerful features designed to boost your job search success.</p>
-	</div>
+				<SectionHeading title={'Boost Your Hiring Chances by 45% with Our Smart Resume Maker!'} subtitle={'Craft professional resumes effortlessly with powerful features designed to boost your job search success.'} section={'Our Main Features'}/>
+	
 	<div className="container grid justify-center gap-7 mx-auto lg:grid-cols-2 xl:grid-cols-3">
 		{/* feature 1  */}
 		<div className="flex flex-col px-8 py-6 border-r border-b">

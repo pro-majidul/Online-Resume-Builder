@@ -1,6 +1,7 @@
 import Features from "@/components/Features";
 import Hero from "@/components/Hero";
 import MeetTeam from "@/components/MeetTeam";
+import Templates from "@/components/Templates";
 
 export default function Home() {
   return (
@@ -13,6 +14,11 @@ export default function Home() {
       {/* Features section  */}
       <div className="container mx-auto ">
         <Features/>
+      </div>
+      {/* Templates Section  */}
+
+      <div className="container mx-auto" >
+        <Templates/>
       </div>
       {/* Meat our team section  */}
       <div>
