@@ -34,9 +34,8 @@ const Navbar = () => {
               <li key={path} className={hidden}>
                 <Link
                   href={path}
-                  className={`text-xl px-4 py-2 rounded-lg transition-all duration-300 ${
-                    pathname === path ? "bg-white/20 text-white" : "text-gray-300 hover:text-rose-800"
-                  }`}
+                  className={`text-xl px-4 py-2 rounded-lg transition-all duration-300 ${pathname === path ? "bg-white/20 text-white" : "text-gray-300 hover:text-rose-800"
+                    }`}
                 >
                   {name}
                 </Link>
@@ -48,9 +47,9 @@ const Navbar = () => {
         {/* Sign up/in Button */}
         <div>
           {!user ? (
-            <button className="px-4 py-1 border-2 rounded-3xl border-rose-600">Sign out</button>
-          ) : (
             <button className="px-4 py-1 border-2 rounded-3xl border-rose-600">Sign up</button>
+          ) : (
+            <Link href="signupPage" className="px-4 py-1 border-2 rounded-3xl border-rose-600">Sign Up</Link>
           )}
         </div>
       </div>
