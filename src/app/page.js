@@ -6,11 +6,11 @@ export default function Home() {
     <div className="">
       
      {/* Hero/Banner section */}
-      <div className="w-11/12 mx-auto">
+      <div className="container mx-auto px-6">
         <Hero></Hero>
       </div>
       
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+      <main>
        <h1 className=" text-6xl font-bold">Virtual Resume Builder</h1>
        <h3>Please follow this rood</h3>
        <h3>

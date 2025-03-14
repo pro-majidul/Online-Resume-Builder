@@ -88,7 +88,12 @@ const Footer = () => {
             </p>
             <div className="flex w-full max-w-sm items-center space-x-2 my-4">
               <Input type="email" placeholder="Email" />
-              <Button type="submit">Subscribe</Button>
+              <Button
+                className="bg-orange-500 text-white px-4 py-2 rounded-md"
+                type="submit"
+              >
+                Subscribe
+              </Button>
             </div>
             <div className="flex justify-center pt-4 space-x-4 lg:pt-0">
               <a
@@ -121,7 +126,7 @@ const Footer = () => {
         </div>
         <hr className="border-t-2 border-gray-300 my-4"></hr>
         <div>
-          <p className="text-center">©2025 All rights reserved</p>
+          <p className="text-center">©2025 (Resume Maker) All rights reserved</p>
         </div>
       </div>
     </footer>
