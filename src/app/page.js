@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import MeetTeam from "@/components/MeetTeam";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
        <h3>
         Team Avengers
        </h3>
+       <MeetTeam></MeetTeam>
       </main>
      
     </div>
