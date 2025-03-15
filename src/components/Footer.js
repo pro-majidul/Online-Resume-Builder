@@ -6,6 +6,7 @@ import { CgMail } from "react-icons/cg";
 import { GrLinkedin } from "react-icons/gr";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import footerlogo from '../../public/picture/applicant.png'
 const Footer = () => {
   return (
     <footer className="py-6 bg-gray-100 text-[#181A1B] border border-t-2">
@@ -13,15 +14,15 @@ const Footer = () => {
         <div className="grid grid-cols-12 space-y-5">
           <div className="pb-6 col-span-full md:pb-0 md:col-span-6">
             <div className="flex justify-center space-x-3 md:justify-start">
-              <div className="flex items-center justify-center w-12 h-12 rounded-full ">
+              <div className="flex items-center justify-center w-10 h-10 rounded-full ">
                 <Image
-                  src="/picture/brain.png"
+                  src={footerlogo}
                   alt="footer logo "
                   width={50}
                   height={30}
                 ></Image>
               </div>
-              <span className="self-center text-3xl font-bold text-purple-600">
+              <span className="self-center text-3xl font-bold italic">
                 Resume Maker
               </span>
             </div>
