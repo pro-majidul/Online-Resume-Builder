@@ -20,10 +20,7 @@ export default function Home() {
       <div className="container mx-auto">
         <Templates />
       </div>
-      {/* Meat our team section  */}
-      <div>
-       <MeetTeam></MeetTeam>
-      </div>
+     {/* Testimonial */}
      <div className="container mx-auto">
       <Testimonial/>
      </div>
