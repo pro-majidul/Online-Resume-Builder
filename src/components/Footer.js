@@ -6,22 +6,23 @@ import { CgMail } from "react-icons/cg";
 import { GrLinkedin } from "react-icons/gr";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import footerlogo from '../../public/picture/applicant.png'
 const Footer = () => {
   return (
-    <footer className="py-6 bg-gray-100 text-gray-900">
+    <footer className="py-6 bg-gray-100 text-[#181A1B] border border-t-2">
       <div className="container px-6 mx-auto">
         <div className="grid grid-cols-12 space-y-5">
           <div className="pb-6 col-span-full md:pb-0 md:col-span-6">
             <div className="flex justify-center space-x-3 md:justify-start">
-              <div className="flex items-center justify-center w-12 h-12 rounded-full dark:bg-violet-600">
+              <div className="flex items-center justify-center w-10 h-10 rounded-full ">
                 <Image
-                  src="/logo.png"
+                  src={footerlogo}
                   alt="footer logo "
                   width={50}
                   height={30}
                 ></Image>
               </div>
-              <span className="self-center text-3xl font-bold text-purple-600">
+              <span className="self-center text-3xl font-bold italic">
                 Resume Maker
               </span>
             </div>
@@ -31,7 +32,7 @@ const Footer = () => {
               USA 00907
               <br></br>
               <a
-                className="hover:text-purple-500 text-black"
+                className=" text-black"
                 href="mailto:majidul123tub@gmail.com"
               >
                 Email: support@resumebuilder.com
@@ -39,18 +40,18 @@ const Footer = () => {
             </address>
           </div>
           <div className="col-span-full text-center md:text-left md:col-span-3">
-            <p className="pb-1 text-2xl font-medium underline underline-offset-8 decoration-2 hover:text-violet-600">
+            <p className="pb-1 text-2xl font-medium underline underline-offset-8 decoration-2 hover:text-black">
               Quick Links
             </p>
             <ul className="space-y-1 mt-1">
               <li>
-                <Link className="text-xl hover:text-violet-600" href="/">
+                <Link className="text-xl hover:text-black" href="/">
                   Home
                 </Link>
               </li>
               <li>
                 <Link
-                  className="text-xl hover:text-violet-600"
+                  className="text-xl hover:text-black"
                   href="/myResume"
                 >
                   My Resume
@@ -58,7 +59,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  className="text-xl hover:text-violet-600"
+                  className="text-xl hover:text-black"
                   href="/resumeTemplates"
                 >
                   Templates
@@ -66,7 +67,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  className="text-xl hover:text-violet-600"
+                  className="text-xl hover:text-black"
                   href="/aboutPage"
                 >
                   About Us
@@ -74,7 +75,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  className="text-xl hover:text-violet-600"
+                  className="text-xl hover:text-black"
                   href="/contactPage"
                 >
                   Contact Us
@@ -83,13 +84,14 @@ const Footer = () => {
             </ul>
           </div>
           <div className="col-span-full text-center md:text-left md:col-span-3">
-            <p className="pb-1 text-2xl font-medium hover:text-violet-600">
+            <p className="pb-1 text-2xl font-medium hover:text-black">
               Subscribe to our newsletter
             </p>
             <div className="flex w-full max-w-sm items-center space-x-2 my-4">
               <Input type="email" placeholder="Email" />
               <Button
-                className="bg-orange-500 text-white px-4 py-2 rounded-md"
+                className="bg-[#F9F51A] text-[#181A1B] 
+                hover:bg-[#FEDBFF] px-4 py-2 rounded-md"
                 type="submit"
               >
                 Subscribe
@@ -100,7 +102,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 href="mailto:majidul123tub@gmail.com"
                 title="Email"
-                className="flex items-center justify-center w-10 h-10 rounded-full bg-violet-600 text-gray-50"
+                className="flex items-center justify-center"
               >
                 <CgMail className="text-4xl" />
               </a>
@@ -109,7 +111,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 href="https://github.com/pro-majidul"
                 title="GitHub"
-                className="flex items-center justify-center w-10 h-10 rounded-full bg-violet-600 text-gray-50"
+                className="flex items-center justify-center"
               >
                 <FaGithub className="text-3xl" />
               </a>
@@ -117,7 +119,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 href="https://www.linkedin.com/in/majidul-islam7/"
                 title="LinkedIN"
-                className="flex items-center justify-center w-10 h-10 rounded-full bg-violet-600 text-gray-50"
+                className="flex items-center justify-center text-blue-500"
               >
                 <GrLinkedin className="text-2xl" />
               </a>
