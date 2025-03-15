@@ -12,7 +12,7 @@ export default function Home() {
         <Hero></Hero>
       </div>
       {/* Features section  */}
-      <div className="container mx-auto ">
+      <div className=" py-5 my-5 ">
         <Features />
       </div>
 
