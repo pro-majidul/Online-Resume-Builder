@@ -10,7 +10,7 @@ const contactPage = () => {
   };
 
   return (
-    <div className="min-h-screen w-11/12 mx-auto py-8">
+    <div className="container mx-auto px-10 py-8">
       {/* Hero Section */}
       <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-2">
         {/* Left - Text */}
