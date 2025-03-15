@@ -1,3 +1,4 @@
+import CreateMyResume from "@/components/CreateMyResume";
 import FAQ from "@/components/FAQ";
 import Features from "@/components/Features";
 import Hero from "@/components/Hero";
@@ -11,6 +12,12 @@ export default function Home() {
       <div className="container mx-auto px-6">
         <Hero></Hero>
       </div>
+
+      {/* Create my resume */}
+      <div className="container mx-auto">
+        <CreateMyResume></CreateMyResume>
+      </div>
+
       {/* Features section  */}
       <div className=" py-5 my-5 ">
         <Features />
