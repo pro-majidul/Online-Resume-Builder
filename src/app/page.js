@@ -1,21 +1,23 @@
+import Features from "@/components/Features";
 import Hero from "@/components/Hero";
+import MeetTeam from "@/components/MeetTeam";
 
 export default function Home() {
   return (
-    <div className="">
+    <div className=" ">
       
      {/* Hero/Banner section */}
-      <div className="w-11/12 mx-auto">
+      <div className="container mx-auto px-6">
         <Hero></Hero>
       </div>
-      
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-       <h1 className=" text-6xl font-bold">Virtual Resume Builder</h1>
-       <h3>Please follow this rood</h3>
-       <h3>
-        Team Avengers
-       </h3>
-      </main>
+      {/* Features section  */}
+      <div className="container mx-auto ">
+        <Features/>
+      </div>
+      {/* Meat our team section  */}
+      <div>
+       <MeetTeam></MeetTeam>
+      </div>
      
     </div>
   );
