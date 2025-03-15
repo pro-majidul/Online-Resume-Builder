@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className=" ">
       {/* Hero/Banner section */}
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto ">
         <Hero></Hero>
       </div>
 
