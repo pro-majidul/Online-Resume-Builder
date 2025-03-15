@@ -1,7 +1,8 @@
 import { FaArrowRightLong } from "react-icons/fa6";
 import SectionHeading from "./shared/SectionHeading";
-import SwiperComponent from "./SwiperComponent";
+import SwiperComponent from "./silder/SwiperComponent";
 import { Button } from "./ui/button";
+import CustomButton from "./shared/CustomButton";
 
 const Templates = () => {
     return (
@@ -10,12 +11,7 @@ const Templates = () => {
 
            <SwiperComponent></SwiperComponent>
            <div className="flex justify-center my-5">
-           <Button
-                className="bg-[#e5e106] text-lg hover:bg-[#fedbff] hover:shadow-2xl text-[#181a1b] px-4 py-2 rounded-md"
-                type="submit"
-              >
-                Explore All Templates <FaArrowRightLong/>
-              </Button> 
+           <CustomButton title={'Explore All Templates'}/>
            </div>
          
         </div>

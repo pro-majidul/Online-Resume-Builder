@@ -7,6 +7,7 @@ import f4 from './../../public/picture/f2.png'
 import f3 from './../../public/picture/cv.png'
 import { FaArrowRightLong } from "react-icons/fa6";
 import SectionHeading from "./shared/SectionHeading";
+import CustomButton from "./shared/CustomButton";
 
 const Features = () => {
     return (
@@ -25,10 +26,7 @@ const Features = () => {
              />
 			<h2 className="mb-2 text-lg font-semibold sm:text-xl title-font dark:text-gray-800">Customizable Resume Templates</h2>
 			<p className="flex-1 mb-4 text-base leading-relaxed dark:text-gray-600">Professionally designed for all industries and career levels, our templates let you easily customize layouts, fonts, and colors to match your style and expertise.</p>
-			<a className="inline-flex items-center space-x-2 text-sm " href="/components">
-				<span>Learn More</span>
-				<FaArrowRightLong />
-			</a>
+			<CustomButton title={'Learn More'}/>
 		</div>
 		{/* feature 2  */}
 		<div className="flex flex-col px-8 py-6  border-r border-b ">
@@ -40,10 +38,7 @@ const Features = () => {
              />
 			<h2 className="mb-2 text-lg font-semibold sm:text-xl title-font dark:text-gray-800">Drag-and-Drop Resume Sections </h2>
 			<p className="flex-1 mb-4 text-base leading-relaxed dark:text-gray-600">Effortlessly customize your resume by rearranging sections with a simple drag-and-drop. Organize your content exactly how you want for a polished, professional look</p>
-			<a className="inline-flex items-center space-x-2 text-sm " href="/sections">
-				<span>Learn More</span>
-				<FaArrowRightLong/>
-			</a>
+			<CustomButton title={'Learn More'}/>
 		</div>
 		{/* feature 3  */}
 		<div className="flex flex-col px-8 py-6 border-r border-b">
@@ -55,10 +50,7 @@ const Features = () => {
              />
 			<h2 className="mb-2 text-lg font-semibold sm:text-xl title-font dark:text-gray-800">ATS-Optimized Resumes</h2>
 			<p className="flex-1 mb-4 text-base leading-relaxed dark:text-gray-600">Get past resume filters with our ATS-friendly templates! Designed for better visibility and recruiter screening.</p>
-			<a className="inline-flex items-center space-x-2 text-sm " href="/templates">
-				<span>Learn More</span>
-				<FaArrowRightLong/>
-			</a>
+			<CustomButton title={'Learn More'}/>
 		</div>
 		{/* feature 4  */}
 		<div className="flex flex-col px-8 py-6 border-r border-b">
@@ -71,10 +63,7 @@ const Features = () => {
 			<h2 className="mb-2 text-lg font-semibold sm:text-xl title-font dark:text-gray-800">Industry-Specific Resume Analytics
 			</h2>
 			<p className="flex-1 mb-4 text-base leading-relaxed dark:text-gray-600">Get insights tailored to your industry! Our resume analytics feature evaluates your resume based on industry standards, helping you optimize it for better job opportunities.</p>
-			<a className="inline-flex items-center space-x-2 text-sm " href="/docs">
-				<span>Learn More</span>
-				<FaArrowRightLong/>
-			</a>
+			<CustomButton title={'Learn More'}/>
 		</div>
 		{/* feature 5 */}
 		<div className="flex flex-col px-8 py-6 border-r border-b">
@@ -86,10 +75,7 @@ const Features = () => {
              />
 			<h2 className="mb-2 text-lg font-semibold sm:text-xl title-font dark:text-gray-800">AI-Driven Resume Suggestions </h2>
 			<p className="flex-1 mb-4 text-base leading-relaxed dark:text-gray-600">Enhance your resume with smart AI-powered suggestions! Our system analyzes your resume and provides tailored recommendations to improve content, structure, and ATS compatibility.</p>
-			<a className="inline-flex items-center space-x-2 text-sm " href="/docs">
-				<span>Learn More</span>
-				<FaArrowRightLong/>
-			</a>
+			<CustomButton title={'Learn More'}/>
 		</div>
 		{/* feature 6  */}
 		<div className="flex flex-col px-8 py-6 border-r border-b">
@@ -101,10 +87,7 @@ const Features = () => {
              />
 			<h2 className="mb-2 text-lg font-semibold sm:text-xl title-font dark:text-gray-800">Job-Specific Resume Optimization</h2>
 			<p className="flex-1 mb-4 text-base leading-relaxed dark:text-gray-600">Tailor your resume for any job with precision! Our optimization tool analyzes job descriptions and helps you align your resume with the right keywords, skills, and formatting.</p>
-			<a className="inline-flex items-center space-x-2 text-sm " href="/docs">
-				<span>Learn More</span>
-				<FaArrowRightLong/>
-			</a>
+			<CustomButton title={'Learn More'}/>
 		</div>
 	</div>
 </section>

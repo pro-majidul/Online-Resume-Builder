@@ -2,6 +2,7 @@ import Features from "@/components/Features";
 import Hero from "@/components/Hero";
 import MeetTeam from "@/components/MeetTeam";
 import Templates from "@/components/Templates";
+import Testimonial from "@/components/Testimonial";
 
 export default function Home() {
   return (
@@ -24,7 +25,9 @@ export default function Home() {
       <div>
        <MeetTeam></MeetTeam>
       </div>
-     
+     <div className="container mx-auto">
+      <Testimonial/>
+     </div>
     </div>
   );
 }
