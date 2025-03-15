@@ -2,6 +2,7 @@ import FAQ from "@/components/FAQ";
 import Features from "@/components/Features";
 import Hero from "@/components/Hero";
 import Templates from "@/components/Templates";
+import Testimonial from "@/components/Testimonial";
 
 export default function Home() {
   return (
@@ -19,6 +20,10 @@ export default function Home() {
       <div className="container mx-auto">
         <Templates />
       </div>
+     {/* Testimonial */}
+     <div className="container mx-auto">
+      <Testimonial/>
+     </div>
       {/* FAQ section  */}
       <FAQ></FAQ>
     </div>
