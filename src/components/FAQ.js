@@ -21,7 +21,7 @@ const FAQ = () => {
               with Word?
             </p>
             <p className="px-4 py-6 text-lg pt-0 ml-4 -mt-4 text-gray-700">
-              The whole process is a huge pain – you make a TINY change to your
+              The whole process is a huge pain  you make a TINY change to your
               resume, and the entire resume layout gets completely messed up.
             </p>
             <p className="px-4 py-6 text-lg pt-0 ml-4 -mt-4 text-gray-700">
@@ -49,19 +49,19 @@ const FAQ = () => {
             <ul className="list-disc md:ml-20 px-4 py-6 pt-0 ml-4 -mt-4 text-base">
               <li>
                 <span className="font-medium text-gray-800">Easy to Use</span> -
-                Our builder is very easy to use, even if you're not too
+                Our builder is very easy to use, even if you are not too
                 tech-friendly.
               </li>
               <li>
                 <span className="font-medium text-gray-800">
                   Get Started in under 5 Minutes
-                </span>{" "}
-                - Just pick one of our resume templates, and you're good to go!
+                </span>
+                - Just pick one of our resume templates, and you are good to go!
               </li>
               <li>
                 <span className="font-medium text-gray-800">
-                  It's 100% free
-                </span>{" "}
+                  It is 100% free
+                </span>
                 - Some resume builders out there pretend to be free… and then
                 they hit you with a paywall once you’re done writing your
                 resume! We don’t do that. Our builder will instantly notify you
@@ -70,25 +70,25 @@ const FAQ = () => {
               <li>
                 <span className="font-medium text-gray-800">
                   Cover Letter Builder
-                </span>{" "}
+                </span>
                 - If you’re using Novorésumé Premium, you gain access to our
                 cover letter builder for free (including matching cover letter
                 templates).
               </li>
               <li>
                 <span className="font-medium text-gray-800">
-                  Tons of Customization and Design Options{" "}
-                </span>{" "}
+                  Tons of Customization and Design Options
+                </span>
                 - Our builder offers a ton of customization. You can make
                 changes to the layout, color schemes, and much more.
               </li>
               <li>
                 <span className="font-medium text-gray-800">
                   ATS-Friendly Resume Templates
-                </span>{" "}
+                </span>
                 - Our resume templates are built on top of some of the most
                 popular applicant tracking systems out there. Meaning, your
-                resume won't automatically get rejected by any ATS.
+                resume would not automatically get rejected by any ATS.
               </li>
             </ul>
           </details>
@@ -108,7 +108,7 @@ const FAQ = () => {
             <p className="px-4 py-6 pt-0 text-lg ml-4 -mt-4 text-gray-700">
               If you use any of our premium features, the software will let you
               know about it. It will then ask if you did it accidentally, or if
-              you would like to upgrade to Novorésumé Premium. You're in
+              you would like to upgrade to Novorésumé Premium. You are in
               control!
             </p>
           </details>
@@ -133,10 +133,10 @@ const FAQ = () => {
           </details>
           <details className="w-full border rounded-lg">
             <summary className="px-4 py-6 focus:outline-none focus-visible:ring-violet-600 text-lg font-bold text-gray-800">
-              What's the difference between a CV and a resume?
+              What is the difference between a CV and a resume?
             </summary>
             <p className="px-4 py-6 text-lg pt-0 ml-4 -mt-4 text-gray-700">
-              In the EU, the words "CV" and "resume" are used interchangeably
+              In the EU, the words CV and resume are used interchangeably
             </p>
             <p className="px-4 py-6 pt-0 ml-4 text-lg -mt-4 text-gray-700">
               In the United States, however, a resume is a document you use to
