@@ -10,7 +10,7 @@ const FAQ = () => {
         <h2 className="mb-12 text-4xl font-bold leading-none text-center sm:text-5xl">
           Frequently Asked Questions
         </h2>
-        <div className="space-y-4 px-10">
+        <div className="space-y-4 md:px-10">
           <details className="w-full border rounded-lg">
             <summary className="px-4 py-6 focus:outline-none focus-visible:ring-violet-600 text-lg font-bold text-gray-800">
               Why should I use a resume Maker?

@@ -32,7 +32,7 @@ const Footer = () => {
                 Resume Maker
               </span>
             </div>
-            <address className="my-2 text-gray-800">
+            <address className="my-2 text-gray-800 text-center md:text-start">
               WorkSimpli Software, LLC 1225
               <br></br> Ave Ponce de Leon, Suite 1001 <br></br> San Juan, PR,
               USA 00907
