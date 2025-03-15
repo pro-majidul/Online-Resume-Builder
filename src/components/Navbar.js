@@ -5,6 +5,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import Image from "next/image";
 import logo from "../../public/picture/applicant.png";
 import CustomButton from "./shared/CustomButton";
+import LoginButton from "./LoginButton";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -127,9 +128,10 @@ const Navbar = () => {
             {/* Sign-up Button in Mobile Menu (Hidden on Medium) */}
             <div className="md:hidden flex justify-center pb-4">
               {!user ? (
-                <Link href="/signupPage">
-                  <CustomButton title="Sign Up" />
-                </Link>
+                // <Link href="/signupPage">
+                //   <CustomButton title="Sign Up"/>
+                // </Link>
+                <LoginButton></LoginButton>
               ) : (
                 <Link href="/profilePage">
                   <Image
@@ -140,6 +142,7 @@ const Navbar = () => {
                     className="rounded-full cursor-pointer"
                   />
                 </Link>
+                
               )}
             </div>
           </div>
