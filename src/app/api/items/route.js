@@ -1,8 +1,9 @@
 import dbConnect from "@/lib/dbConnect"
+import { revalidatePath } from "next/cache"
 
 export async function GET() {
     
-    const data = await dbConnect("embedded_movies").find({}).toArray()
+    const data = await dbConnect("users").find({}).toArray()
    
     return Response.json(data)
   }
@@ -10,6 +11,7 @@ export async function GET() {
   export async function POST(req) {
     
     const postedData = await req.json()
-    const result = await dbConnect("embedded_movies").insertOne(postedData)
+    const result = await dbConnect("users").insertOne(postedData)
+    revalidatePath("/products")
     return Response.json(result)
   }
