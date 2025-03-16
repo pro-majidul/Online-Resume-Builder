@@ -18,7 +18,7 @@ const Footer = () => {
     >
       <div className="container px-10 mx-auto z-50">
         <div className="grid grid-cols-12 space-y-5">
-          <div className="pb-6 col-span-full md:pb-0 md:col-span-6">
+          <div className="pb-6 col-span-full md:pb-0 md:col-span-4">
             <div className="flex justify-center space-x-3 md:justify-start">
               <div className="flex items-center justify-center w-8 md:w-10 md:h-10 h-8 rounded-full ">
                 <Image
@@ -32,7 +32,7 @@ const Footer = () => {
                 Resume Maker
               </span>
             </div>
-            <address className="my-2 text-gray-800">
+            <address className="my-2 text-gray-800 text-center md:text-start">
               WorkSimpli Software, LLC 1225
               <br></br> Ave Ponce de Leon, Suite 1001 <br></br> San Juan, PR,
               USA 00907
@@ -42,7 +42,7 @@ const Footer = () => {
               </a>
             </address>
           </div>
-          <div className="col-span-full text-center md:text-left md:col-span-3">
+          <div className="col-span-full md:text-center text-left md:col-span-4">
             <p className="pb-1 text-2xl font-medium underline underline-offset-8 decoration-2 hover:text-black">
               Quick Links
             </p>
@@ -77,7 +77,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className="col-span-full text-center md:text-left md:col-span-3">
+          <div className="col-span-full md:text-center text-left md:col-span-4">
             <p className="pb-1 text-2xl font-medium hover:text-black">
               Subscribe to our newsletter
             </p>
