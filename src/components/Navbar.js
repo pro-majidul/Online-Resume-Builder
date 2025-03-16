@@ -19,6 +19,8 @@ const Navbar = () => {
     { name: "Templates", path: "/resumeTemplates" },
     { name: "About Us", path: "/aboutPage" },
     { name: "Contact Us", path: "/contactPage" },
+    // { name: "Produtcs", path: "/products" },
+    // { name: "Add Products", path: "/products/add" }
   ];
 
   useEffect(() => {
