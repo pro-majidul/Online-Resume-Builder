@@ -6,6 +6,7 @@ import Templates from "@/components/Templates";
 import Testimonial from "@/components/Testimonial";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/route";
+import AiPowerAssistant from "@/components/AiPowerAssistant";
 
 export default function Home() {
   const session = getServerSession(authOptions);
@@ -30,10 +31,14 @@ export default function Home() {
       <div className="container mx-auto">
         <Templates />
       </div>
-     {/* Testimonial */}
-     <div className="container mx-auto">
-      <Testimonial/>
-     </div>
+      {/* Ai Power Assistant Section */}
+
+      <AiPowerAssistant></AiPowerAssistant>
+
+      {/* Testimonial */}
+      <div className="container mx-auto">
+        <Testimonial />
+      </div>
       {/* FAQ section  */}
       <FAQ></FAQ>
     </div>
