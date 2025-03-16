@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-import { Pagination, Navigation } from 'swiper/modules';
+import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import c1 from '../../../public/picture/c7.jpg'
 import c3 from '../../../public/picture/c3.jpg'
 import c4 from '../../../public/picture/c4.jpg'
@@ -24,7 +24,8 @@ const SwiperComponent = () => {
         pagination={{
           clickable: true,
         }}
-        modules={[Pagination,  Navigation]}
+        autoplay={{ delay: 5000 }}
+        modules={[Pagination, Autoplay, Navigation]}
         className="mySwiper  gap-7"
       >
         <SwiperSlide><div className='relative group  overflow-hidden  shadow-xl border border-gray-200 transition-all duration-300 ease-in-out hover:shadow-[#F9F51A] hover:border-2 hover:border-[#F9F51A] hover:shadow-2xl'> 
