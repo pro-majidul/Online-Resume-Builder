@@ -23,12 +23,12 @@ export default function Home() {
       </div>
 
       {/* Features section  */}
-      <div className=" py-5 my-5 ">
+      <div className=" py-14 ">
         <Features />
       </div>
 
       {/* Templates Section  */}
-      <div className="container mx-auto">
+      <div className="">
         <Templates />
       </div>
       {/* Ai Power Assistant Section */}
@@ -36,7 +36,7 @@ export default function Home() {
       <AiPowerAssistant></AiPowerAssistant>
 
       {/* Testimonial */}
-      <div className="container mx-auto">
+      <div className="">
         <Testimonial />
       </div>
       {/* FAQ section  */}
