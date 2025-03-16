@@ -3,12 +3,12 @@ import { FaArrowRightLong } from "react-icons/fa6";
 
 const CustomButton = ({title}) => {
   return (
-    <button className="relative inline-flex items-center space-x-2 text-sm px-4 py-2 border border-gray-600 rounded-md text-gray-800 font-medium overflow-hidden group w-fit">
-      <span className="relative z-10">{title}</span>
-      <FaArrowRightLong className="relative z-10" />
+    <button className="group inline-flex relative items-center space-x-2 px-4 py-2 border border-gray-600 rounded-full w-fit overflow-hidden font-medium text-gray-800 text-sm">
+      <span className="z-10 relative">{title}</span>
+      <FaArrowRightLong className="z-10 relative" />
 
       {/* Background Animation */}
-      <span className="absolute inset-0 bg-[#F9F51A] transition-all duration-500 ease-in-out transform -translate-x-full group-hover:translate-x-0"></span>
+      <span className="absolute inset-0 bg-[#F9F51A] transition-all -translate-x-full group-hover:translate-x-0 duration-500 ease-in-out transform"></span>
 
       {/* Zoom-out effect on hover */}
       <style jsx>{`

@@ -11,13 +11,13 @@ import CustomButton from "./shared/CustomButton";
 
 const Features = () => {
     return (
-        <div className="px-3">
+        <div className="container mx-auto px-3">
             <section className="m-4 md:m-8 dark:bg-gray-100 dark:text-gray-800">
 				<SectionHeading title={'Boost Your Hiring Chances by 45% with Our Smart Resume Maker!'} subtitle={'Craft professional resumes effortlessly with powerful features designed to boost your job search success.'} section={'Our Main Features'}/>
 	
 	<div className="container grid justify-center gap-7 mx-auto lg:grid-cols-2 xl:grid-cols-3">
 		{/* feature 1  */}
-		<div className="flex flex-col px-8 py-6 border-r border-b">
+		<div className=" group  overflow-hidden  transition-all duration-300 ease-in-out hover:shadow-[#F9F51A]  hover:border-[#F9F51A] hover:shadow-2xl flex flex-col px-8 py-6 border-r border-b">
             <Image 
             src={f1}
             width={60}
@@ -29,7 +29,7 @@ const Features = () => {
 			<CustomButton title={'Learn More'}/>
 		</div>
 		{/* feature 2  */}
-		<div className="flex flex-col px-8 py-6  border-r border-b ">
+		<div className="group  overflow-hidden  transition-all duration-300 ease-in-out hover:shadow-[#F9F51A]  hover:border-[#F9F51A] hover:shadow-2xl flex flex-col px-8 py-6 border-r border-b">
         <Image 
             src={f2}
             width={60}
@@ -41,7 +41,7 @@ const Features = () => {
 			<CustomButton title={'Learn More'}/>
 		</div>
 		{/* feature 3  */}
-		<div className="flex flex-col px-8 py-6 border-r border-b">
+		<div className="group  overflow-hidden  transition-all duration-300 ease-in-out hover:shadow-[#F9F51A]  hover:border-[#F9F51A] hover:shadow-2xl flex flex-col px-8 py-6 border-r border-b">
         <Image 
             src={f3}
             width={60}
@@ -53,7 +53,7 @@ const Features = () => {
 			<CustomButton title={'Learn More'}/>
 		</div>
 		{/* feature 4  */}
-		<div className="flex flex-col px-8 py-6 border-r border-b">
+		<div className="group  overflow-hidden  transition-all duration-300 ease-in-out hover:shadow-[#F9F51A]  hover:border-[#F9F51A] hover:shadow-2xl flex flex-col px-8 py-6 border-r border-b">
         <Image 
             src={f4}
             width={60}
@@ -66,7 +66,7 @@ const Features = () => {
 			<CustomButton title={'Learn More'}/>
 		</div>
 		{/* feature 5 */}
-		<div className="flex flex-col px-8 py-6 border-r border-b">
+		<div className="group  overflow-hidden  transition-all duration-300 ease-in-out hover:shadow-[#F9F51A]  hover:border-[#F9F51A] hover:shadow-2xl flex flex-col px-8 py-6 border-r border-b">
         <Image 
             src={f5}
             width={60}
@@ -78,7 +78,7 @@ const Features = () => {
 			<CustomButton title={'Learn More'}/>
 		</div>
 		{/* feature 6  */}
-		<div className="flex flex-col px-8 py-6 border-r border-b">
+		<div className="group  overflow-hidden  transition-all duration-300 ease-in-out hover:shadow-[#F9F51A]  hover:border-[#F9F51A] hover:shadow-2xl flex flex-col px-8 py-6 border-r border-b">
         <Image 
             src={f6}
             width={60}

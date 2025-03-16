@@ -1,16 +1,18 @@
 import React from "react";
+import SectionHeading from "./shared/SectionHeading";
 
 const FAQ = () => {
   return (
     <section className=" text-gray-800 w-full relative">
       <div className="container flex flex-col justify-center p-4 mx-auto md:p-8 ">
-        <p className="p-2 text-sm font-medium tracking-wider text-center uppercase">
+        {/* <p className="p-2 text-sm font-medium tracking-wider text-center uppercase">
           How it works
         </p>
         <h2 className="mb-12 text-4xl font-bold leading-none text-center sm:text-5xl">
           Frequently Asked Questions
-        </h2>
-        <div className="space-y-4 px-10">
+        </h2> */}
+        <SectionHeading section=' How it works' subtitle=' Explore the most common queries and find your answers.' title='Frequently Asked Questions' ></SectionHeading>
+        <div className="space-y-4 md:px-10">
           <details className="w-full border rounded-lg">
             <summary className="px-4 py-6 focus:outline-none focus-visible:ring-violet-600 text-lg font-bold text-gray-800">
               Why should I use a resume Maker?
