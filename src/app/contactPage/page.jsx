@@ -10,7 +10,7 @@ const contactPage = () => {
   };
 
   return (
-    <div className="min-h-screen w-11/12 mx-auto py-8">
+    <div className="container mx-auto px-10 py-8">
       {/* Hero Section */}
       <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-2">
         {/* Left - Text */}
@@ -44,7 +44,7 @@ const contactPage = () => {
               <input
                 type="text"
                 placeholder="Enter your name"
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-rose-600 mt-1"
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-gary-600 mt-1"
               />
             </label>
 
@@ -53,7 +53,7 @@ const contactPage = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-rose-600 mt-1"
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-gray-600 mt-1"
               />
             </label>
 
@@ -62,11 +62,11 @@ const contactPage = () => {
               <textarea
                 placeholder="Enter your message"
                 rows="5"
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-rose-600 mt-1"
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-gray-600 mt-1"
               ></textarea>
             </label>
 
-            <button className="w-full bg-rose-600 text-white py-3 rounded-md hover:bg-rose-700 transition">
+            <button className="w-full bg-[#20252D] text-white py-3 rounded-md hover:bg-[#20252D]/90 transition">
               Send Message
             </button>
           </form>
@@ -78,7 +78,7 @@ const contactPage = () => {
           <Image src="/contactus2.svg" height={200} width={300} alt="Contact Illustration" />
         </div>
           <div className="flex items-center gap-4">
-            <FaMapMarkerAlt className="text-rose-600 text-3xl" />
+            <FaMapMarkerAlt className="text-[#20252D] text-3xl" />
             <div>
               <h3 className="text-xl font-semibold">Our Location</h3>
               <p className="text-gray-600">123 Resume Street, Dhaka, Bangladesh</p>
@@ -86,7 +86,7 @@ const contactPage = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <FaPhone className="text-rose-600 text-3xl" />
+            <FaPhone className="text-[#20252D] text-3xl" />
             <div>
               <h3 className="text-xl font-semibold">Call Us</h3>
               <p className="text-gray-600">+880 1234 567 890</p>
@@ -94,7 +94,7 @@ const contactPage = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <FaEnvelope className="text-rose-600 text-3xl" />
+            <FaEnvelope className="text-[#20252D] text-3xl" />
             <div>
               <h3 className="text-xl font-semibold">Email Us</h3>
               <p className="text-gray-600">support@resumebuilder.com</p>

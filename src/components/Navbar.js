@@ -1,13 +1,17 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Image from "next/image";
 import logo from "../../public/picture/applicant.png";
+import CustomButton from "./shared/CustomButton";
+import LoginButton from "./LoginButton";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const user = 1; // Change this to null to test logged-out state
+  const [scrolling, setScrolling] = useState(false);
+  // const user = { name: "John Doe", userPhoto: "/logo.png" };
+  const user = "";
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -17,97 +21,135 @@ const Navbar = () => {
     { name: "Contact Us", path: "/contactPage" },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setScrolling(true);
+      } else {
+        setScrolling(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="sticky top-0 z-50 bg-gray-100 text-[#181A1B] shadow-md border-b-2 py-4 px-8">
-      <div className="container mx-auto flex justify-between items-center lg:grid lg:grid-cols-3">
+    <div className="h-14">
+      <nav
+        className={`fixed top-0 w-full z-50 py-4 px-8 transition-all duration-300 ${
+          scrolling ? "bg-white shadow-md" : "bg-transparent"
+        }`}
+      >
+        <div className="container mx-auto flex justify-between items-center lg:grid lg:grid-cols-3">
+          {/* Logo (Left Side) */}
+          <Link href={"/"}>
+            <div className="flex items-center space-x-1">
+              <Image src={logo} alt="Logo" width={30} height={30} />
+              <span className="text-2xl font-bold">Resume Maker</span>
+            </div>
+          </Link>
 
-        {/* Logo (Left Side) */}
-        <Link href={"/"}>
-          <div className="flex items-center space-x-1">
-            <Image src={logo} alt="Logo" width={30} height={30} />
-            <span className="text-2xl font-bold">Resume Maker</span>
-          </div>
-        </Link>
-
-        {/* lg Navigation */}
-        <div className="hidden lg:flex justify-center items-center gap-5">
-          {navLinks.map(({ name, path }) => (
-            <Link key={path} href={path} className="btn w-fit text-xl hover:text-gray-600 whitespace-nowrap">
-              {name}
-            </Link>
-          ))}
-        </div>
-        
-
-        {/* Right Side: Sign-Up Button (Large Screens) & Hamburger Menu (Medium & Small) */}
-        <div className="flex items-center gap-4 lg:justify-end">
-          {/* Sign-Up Button (Large Screens) */}
-          <div className="hidden lg:block">
-            {!user ? (
-              <button className="px-4 py-1 border-2 rounded-3xl border-rose-600">
-                Sign up
-              </button>
-            ) : (
-              <Link href="/signupPage" className="px-4 py-1 border-2 rounded-3xl border-black">
-                Sign Up
+          {/* lg Navigation */}
+          <div className="hidden lg:flex justify-center items-center gap-5">
+            {navLinks.map(({ name, path }) => (
+              <Link key={path} href={path} className="btn w-fit text-xl hover:text-gray-600 whitespace-nowrap">
+                {name}
               </Link>
-            )}
+            ))}
           </div>
 
-          {/* Medium Screens: Sign-up Button & Menu Toggle */}
-          <div className="flex items-center gap-4 lg:hidden">
-            <div className="hidden md:block">
-              {!user ? (
-                <button className="px-4 py-1 border-2 rounded-3xl border-black">
-                  Sign up
-                </button>
-              ) : (
-                <Link href="/signupPage" className="px-4 py-1 border-2 rounded-3xl border-rose-600">
-                  Sign Up
+          {/* Right Side: Sign-Up Button (Large Screens) & Hamburger Menu (Medium & Small) */}
+          <div className="flex items-center gap-4 lg:justify-end">
+            {/* User Profile or Sign-Up Button */}
+            <div className="hidden lg:block">
+              {/* {user ? (
+                <Link href="/profilePage">
+                  <Image
+                    src={user.userPhoto}
+                    alt="Profile"
+                    width={30}
+                    height={30}
+                    className="rounded-full cursor-pointer"
+                  />
                 </Link>
-              )}
+              ) : (
+                <Link href="/signupPage">
+                  <CustomButton title="Sign Up" />
+                </Link>
+              )} */}
+              <LoginButton></LoginButton>
             </div>
 
-            {/* Mobile & Medium Menu Toggle */}
-            <button className="text-2xl" onClick={() => setMenuOpen(!menuOpen)}>
-              {menuOpen ? <FaTimes /> : <FaBars />}
-            </button>
-          </div>
-        </div>
-      </div>
+            {/* Medium Screens: Sign-up Button & Menu Toggle */}
+            <div className="flex items-center gap-4 lg:hidden">
+              <div className="hidden md:block">
+                {!user ? (
+                  <Link href="/signupPage">
+                    <CustomButton title="Sign Up" />
+                  </Link>
+                ) : (
+                  <Link href="/profilePage">
+                    <Image
+                      src={user.userPhoto}
+                      alt="Profile"
+                      width={30}
+                      height={30}
+                      className="rounded-full cursor-pointer"
+                    />
+                  </Link>
+                )}
+              </div>
 
-      {/* Mobile & Medium Navigation (Shows when menu is open) */}
-      {menuOpen && (
-        <div className="absolute top-16 left-0 w-full bg-gray-200 shadow-md">
-          <ul className="flex flex-col items-center space-y-4 py-4">
-            {navLinks.map(({ name, path }) => (
-              <li key={path}>
-                <Link
-                  href={path}
-                  className="text-xl block px-6 py-2 hover:bg-gray-300 rounded"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-
-          {/* Sign-up Button in Mobile Menu (Hidden on Medium) */}
-          <div className="md:hidden flex justify-center pb-4">
-            {!user ? (
-              <button className="px-4 py-1 border-2 rounded-3xl border-rose-600">
-                Sign up
+              {/* Mobile & Medium Menu Toggle */}
+              <button className="text-2xl" onClick={() => setMenuOpen(!menuOpen)}>
+                {menuOpen ? <FaTimes /> : <FaBars />}
               </button>
-            ) : (
-              <Link href="/signupPage" className="px-4 py-1 border-2 rounded-3xl border-rose-600">
-                Sign Up
-              </Link>
-            )}
+            </div>
           </div>
         </div>
-      )}
-    </nav>
+
+        {/* Mobile & Medium Navigation (Shows when menu is open) */}
+        {menuOpen && (
+          <div className="absolute top-14 left-0 w-full bg-gray-200 shadow-md">
+            <ul className="flex flex-col items-center space-y-4 py-4">
+              {navLinks.map(({ name, path }) => (
+                <li key={path}>
+                  <Link
+                    href={path}
+                    className="text-xl block px-6 py-2 hover:bg-gray-300 rounded"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            {/* Sign-up Button in Mobile Menu (Hidden on Medium) */}
+            <div className="md:hidden flex justify-center pb-4">
+              {!user ? (
+                // <Link href="/signupPage">
+                //   <CustomButton title="Sign Up"/>
+                // </Link>
+                <LoginButton></LoginButton>
+              ) : (
+                <Link href="/profilePage">
+                  <Image
+                    src={user.userPhoto}
+                    alt="Profile"
+                    width={30}
+                    height={30}
+                    className="rounded-full cursor-pointer"
+                  />
+                </Link>
+                
+              )}
+            </div>
+          </div>
+        )}
+      </nav>
+    </div>
   );
 };
 
