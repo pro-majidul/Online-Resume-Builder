@@ -20,7 +20,7 @@ const Navbar = () => {
     { name: "About Us", path: "/aboutPage" },
     { name: "Contact Us", path: "/contactPage" },
     // { name: "Register", path: "/signupPage" },
-    // { name: "Products", path: "/products" },
+    { name: "Products", path: "/products" },
     // { name: "Add Products", path: "/products/add" }
   ];
 
