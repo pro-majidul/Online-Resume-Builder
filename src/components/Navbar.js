@@ -4,14 +4,15 @@ import Link from "next/link";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Image from "next/image";
 import logo from "../../public/picture/applicant.png";
-import CustomButton from "./shared/CustomButton";
 import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
+import { useSession } from "next-auth/react";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
   // const user = { name: "John Doe", userPhoto: "/logo.png" };
-  const user = "";
+  // const user = "";
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -20,7 +21,7 @@ const Navbar = () => {
     { name: "About Us", path: "/aboutPage" },
     { name: "Contact Us", path: "/contactPage" },
     // { name: "Register", path: "/signupPage" },
-    { name: "Products", path: "/products" },
+    // { name: "Products", path: "/products" },
     // { name: "Add Products", path: "/products/add" }
   ];
 
@@ -37,12 +38,13 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+ 
+  const { data: session } = useSession();
   return (
     <div className="h-16">
       <nav
-        className={`fixed top-0 w-full z-50 py-4 px-8 transition-all duration-300 ${
-          scrolling ? "bg-white shadow-md" : "bg-transparent"
-        }`}
+        className={`fixed top-0 w-full z-50 py-4 px-8 transition-all duration-300 ${scrolling ? "bg-white shadow-md" : "bg-transparent"
+          }`}
       >
         <div className="container mx-auto flex justify-between items-center lg:grid lg:grid-cols-3">
           {/* Logo (Left Side) */}
@@ -66,40 +68,21 @@ const Navbar = () => {
           <div className="flex items-center gap-4 lg:justify-end">
             {/* User Profile or Sign-Up Button */}
             <div className="hidden lg:block">
-              {/* {user ? (
-                <Link href="/profilePage">
-                  <Image
-                    src={user.userPhoto}
-                    alt="Profile"
-                    width={30}
-                    height={30}
-                    className="rounded-full cursor-pointer"
-                  />
-                </Link>
+              {session ? (
+                <LogoutButton />
               ) : (
-                <Link href="/signupPage">
-                  <CustomButton title="Sign Up" />
-                </Link>
-              )} */}
-              <LoginButton></LoginButton>
+                <LoginButton />
+              )}
             </div>
 
             {/* Medium Screens: Sign-up Button & Menu Toggle */}
             <div className="flex items-center gap-4 lg:hidden">
               <div className="hidden md:block">
-                {!user ? (
-                  <LoginButton></LoginButton>
-                ) : (
-                  <Link href="/profilePage">
-                    <Image
-                      src={user.userPhoto}
-                      alt="Profile"
-                      width={30}
-                      height={30}
-                      className="rounded-full cursor-pointer"
-                    />
-                  </Link>
-                )}
+              {session ? (
+                <LogoutButton />
+              ) : (
+                <LoginButton />
+              )}
               </div>
 
               {/* Mobile & Medium Menu Toggle */}
@@ -129,22 +112,10 @@ const Navbar = () => {
 
             {/* Sign-up Button in Mobile Menu (Hidden on Medium) */}
             <div className="md:hidden flex justify-center pb-4">
-              {!user ? (
-                // <Link href="/signupPage">
-                //   <CustomButton title="Sign Up"/>
-                // </Link>
-                <LoginButton></LoginButton>
+            {session ? (
+                <LogoutButton />
               ) : (
-                <Link href="/profilePage">
-                  <Image
-                    src={user.userPhoto}
-                    alt="Profile"
-                    width={30}
-                    height={30}
-                    className="rounded-full cursor-pointer"
-                  />
-                </Link>
-                
+                <LoginButton />
               )}
             </div>
           </div>
