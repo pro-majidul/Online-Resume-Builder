@@ -2,7 +2,7 @@
 import { Link } from 'lucide-react'
 import Image from 'next/image'
 import { useForm } from 'react-hook-form'
-import { FaGoogle, FaGithub } from 'react-icons/fa'
+import { FaGoogle, FaGithub, FaLinkedin } from 'react-icons/fa'
 
 export default function Signup () {
   const {
@@ -16,7 +16,7 @@ export default function Signup () {
   }
 
   return (
-    <div className='flex justify-center items-center gap-x-52 bg-[#F4FAFB] px-4 py-10 min-h-screen'>
+    <div className='lg:flex justify-center items-center gap-x-52 bg-[#F4FAFB] px-4 py-10 min-h-screen'>
       {/* left Section (Image) */}
       <div className='w-full max-w-md h-auto'>
         <Image
@@ -30,7 +30,7 @@ export default function Signup () {
       </div>
       {/* Right Section (form) */}
       <div className='bg-[#CBBAD9] shadow-sm p-8 rounded-4xl w-full max-w-md'>
-        <h2 className='font-bold text-[#18234E] text-4xl text-center'>
+        <h2 className='font-bold text-[#18234E] text-3xl lg:text-4xl text-center'>
           SignUp To Your Account
         </h2>
 
@@ -41,7 +41,7 @@ export default function Signup () {
             <input
               type='text'
               {...register('name', { required: 'Full Name is required' })}
-              className='bg-white mt-2 px-14 py-2 border focus:border-blue-400 rounded-3xl focus:outline-none focus:ring w-full'
+              className='bg-white mt-2 px-4 py-2 focus:border-blue-400 rounded-3xl focus:outline-none focus:ring w-full'
             />
             {errors.name && (
               <p className='text-red-500 text-sm'>{errors.name?.message}</p>
@@ -95,12 +95,15 @@ export default function Signup () {
         <div className='my-4 text-gray-500 text-center'>OR</div>
 
         {/* Social Logins */}
-        <div className='flex space-x-4 mt-4'>
-          <button className='flex justify-center items-center hover:bg-gray-100 px-4 py-2 border rounded-lg w-1/2 transition'>
-            <FaGoogle className='mr-2' /> Google
+        <div className='flex space-x-1 lg:space-x-4 mt-4'>
+          <button className='flex justify-center items-center hover:bg-gray-100 px-1 lg:px-4 py-2 border rounded-lg w-1/2 transition'>
+            <FaGoogle className='mr-0 lg:mr-2' /> Google
           </button>
-          <button className='flex justify-center items-center hover:bg-gray-100 px-4 py-2 border rounded-lg w-1/2 transition'>
-            <FaGithub className='mr-2' /> GitHub
+          <button className='flex justify-center items-center hover:bg-gray-100 px-1 lg:px-4 py-2 border rounded-lg w-1/2 transition'>
+            <FaLinkedin className='mr-0 lg:mr-2' /> Google
+          </button>
+          <button className='flex justify-center items-center hover:bg-gray-100 px-1 lg:px-4 py-2 border rounded-lg w-1/2 transition'>
+            <FaGithub className='mr-0 lg:mr-2' /> GitHub
           </button>
         </div>
 
