@@ -3,16 +3,21 @@ import { Link } from 'lucide-react'
 import Image from 'next/image'
 import { useForm } from 'react-hook-form'
 import { FaGoogle, FaGithub, FaLinkedin } from 'react-icons/fa'
+import { registerUser } from '../actions/auth/registerUser'
 
 export default function Signup () {
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors }
   } = useForm()
 
-  const onSubmit = data => {
-    console.log('Signup Data:', data)
+  const onSubmit = async(data) => {
+    const payload = data;
+    const result = await registerUser(payload);
+    console.log(result);
+    reset()
   }
 
   return (
