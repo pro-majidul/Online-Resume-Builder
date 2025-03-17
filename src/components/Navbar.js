@@ -19,7 +19,8 @@ const Navbar = () => {
     { name: "Templates", path: "/resumeTemplates" },
     { name: "About Us", path: "/aboutPage" },
     { name: "Contact Us", path: "/contactPage" },
-    // { name: "Produtcs", path: "/products" },
+    // { name: "Register", path: "/signupPage" },
+    // { name: "Products", path: "/products" },
     // { name: "Add Products", path: "/products/add" }
   ];
 
@@ -65,7 +66,7 @@ const Navbar = () => {
           <div className="flex items-center gap-4 lg:justify-end">
             {/* User Profile or Sign-Up Button */}
             <div className="hidden lg:block">
-              {user ? (
+              {/* {user ? (
                 <Link href="/profilePage">
                   <Image
                     src={user.userPhoto}
@@ -79,8 +80,8 @@ const Navbar = () => {
                 <Link href="/signupPage">
                   <CustomButton title="Sign Up" />
                 </Link>
-              )}
-              {/* <LoginButton></LoginButton> */}
+              )} */}
+              <LoginButton></LoginButton>
             </div>
 
             {/* Medium Screens: Sign-up Button & Menu Toggle */}

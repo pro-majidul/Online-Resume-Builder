@@ -40,7 +40,7 @@ export default function Login () {
             <label className='block ml-3 text-[#17224d]'>Username :</label>
             <input
               type='text'
-              {...register('name', { required: 'Full Name is required' })}
+              {...register('username', { required: 'Full Name is required' })}
               className='bg-white mt-2 px-14 py-2 border focus:border-blue-400 rounded-3xl focus:outline-none focus:ring w-full'
             />
             {errors.name && (

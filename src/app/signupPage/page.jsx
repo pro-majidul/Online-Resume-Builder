@@ -3,16 +3,21 @@ import { Link } from 'lucide-react'
 import Image from 'next/image'
 import { useForm } from 'react-hook-form'
 import { FaGoogle, FaGithub, FaLinkedin } from 'react-icons/fa'
+import { registerUser } from '../actions/auth/registerUser'
 
 export default function Signup () {
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors }
   } = useForm()
 
-  const onSubmit = data => {
-    console.log('Signup Data:', data)
+  const onSubmit = async(data) => {
+    const payload = data;
+    const result = await registerUser(payload);
+    console.log(result);
+    reset()
   }
 
   return (
@@ -40,11 +45,11 @@ export default function Signup () {
             <label className='block ml-3 text-[#17224d]'>Username :</label>
             <input
               type='text'
-              {...register('name', { required: 'Full Name is required' })}
+              {...register('username', { required: 'Full Name is required' })}
               className='bg-white mt-2 px-4 py-2 focus:border-blue-400 rounded-3xl focus:outline-none focus:ring w-full'
             />
             {errors.name && (
-              <p className='text-red-500 text-sm'>{errors.name?.message}</p>
+              <p className='text-red-500 text-sm'>{errors.username?.message}</p>
             )}
           </div>
 
