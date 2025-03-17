@@ -19,6 +19,8 @@ const Navbar = () => {
     { name: "Templates", path: "/resumeTemplates" },
     { name: "About Us", path: "/aboutPage" },
     { name: "Contact Us", path: "/contactPage" },
+    // { name: "Produtcs", path: "/products" },
+    // { name: "Add Products", path: "/products/add" }
   ];
 
   useEffect(() => {
@@ -35,7 +37,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="h-14">
+    <div className="h-16">
       <nav
         className={`fixed top-0 w-full z-50 py-4 px-8 transition-all duration-300 ${
           scrolling ? "bg-white shadow-md" : "bg-transparent"
@@ -46,14 +48,14 @@ const Navbar = () => {
           <Link href={"/"}>
             <div className="flex items-center space-x-1">
               <Image src={logo} alt="Logo" width={30} height={30} />
-              <span className="text-2xl font-bold">Resume Maker</span>
+              <span className="text-2xl font-bold italic  ">Resume Maker</span>
             </div>
           </Link>
 
           {/* lg Navigation */}
           <div className="hidden lg:flex justify-center items-center gap-5">
             {navLinks.map(({ name, path }) => (
-              <Link key={path} href={path} className="btn w-fit text-xl hover:text-gray-600 whitespace-nowrap">
+              <Link key={path} href={path} className="btn w-fit text-lg hover:text-gray-600 whitespace-nowrap">
                 {name}
               </Link>
             ))}
@@ -63,7 +65,7 @@ const Navbar = () => {
           <div className="flex items-center gap-4 lg:justify-end">
             {/* User Profile or Sign-Up Button */}
             <div className="hidden lg:block">
-              {/* {user ? (
+              {user ? (
                 <Link href="/profilePage">
                   <Image
                     src={user.userPhoto}
@@ -77,17 +79,15 @@ const Navbar = () => {
                 <Link href="/signupPage">
                   <CustomButton title="Sign Up" />
                 </Link>
-              )} */}
-              <LoginButton></LoginButton>
+              )}
+              {/* <LoginButton></LoginButton> */}
             </div>
 
             {/* Medium Screens: Sign-up Button & Menu Toggle */}
             <div className="flex items-center gap-4 lg:hidden">
               <div className="hidden md:block">
                 {!user ? (
-                  <Link href="/signupPage">
-                    <CustomButton title="Sign Up" />
-                  </Link>
+                  <LoginButton></LoginButton>
                 ) : (
                   <Link href="/profilePage">
                     <Image

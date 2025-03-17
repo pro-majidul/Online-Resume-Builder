@@ -3,7 +3,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 
 const CustomButton = ({title}) => {
   return (
-    <button className="group inline-flex relative items-center space-x-2 px-4 py-2 border border-gray-600 rounded-full w-fit overflow-hidden font-medium text-gray-800 text-sm">
+    <button className="group inline-flex relative items-center space-x-2 px-4 py-2 bg-[#FEDBFF] rounded-full w-fit overflow-hidden font-medium text-gray-800 text-sm">
       <span className="z-10 relative">{title}</span>
       <FaArrowRightLong className="z-10 relative" />
 

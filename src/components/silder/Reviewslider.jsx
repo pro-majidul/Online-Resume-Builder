@@ -195,10 +195,10 @@ const ReviewSlider = () => {
         modifier: 1,
         slideShadows: true,
       }}
-      autoplay={{ delay: 5000, reverseDirection: true }}
+      autoplay={{ delay: 5000 }}
       navigation={true}
       modules={[EffectCoverflow, Navigation, Autoplay, Pagination]}
-      className="mySwiper lg:h-[300px] lg:w-[1200px] mx-auto"
+      className="mySwiper lg:h-[300px] lg:container mx-auto"
       onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
     >
       {reviews.map((review, index) => (
