@@ -2,6 +2,7 @@ import CustomBanner from '@/components/shared/CustomBanner';
 import b1 from '../../../public/picture/banner.gif'
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import ResumeTemplates from './Components/ResumeTamplate';
 
 const MyResume = () => {
     return (
@@ -22,6 +23,7 @@ const MyResume = () => {
                 </Button>
               </div>
     </div>
+    <ResumeTemplates/>
 
 
         </div>
