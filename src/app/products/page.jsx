@@ -19,7 +19,7 @@ export default function ProductsPage() {
   return <div>
     <ul className="text-center">
       {data?.map((singleProduct) => {
-        return <li key={singleProduct._id}>{singleProduct?.name}</li>
+        return <li key={singleProduct._id}>{singleProduct?.username}</li>
       })}
     </ul>
   </div>;
