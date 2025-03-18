@@ -1,5 +1,7 @@
+import { loginUser } from "@/app/actions/auth/loginUser";
 import dbConnect, { collectionNames } from "@/lib/dbConnect";
 import CredentialsProvider from "next-auth/providers/credentials";
+
 
 export const authOptions = {
     providers: [
@@ -11,17 +13,19 @@ export const authOptions = {
             // e.g. domain, username, password, 2FA token, etc.
             // You can pass any HTML attribute to the <input> tag through the object.
             credentials: {
-                username: { label: "Username", type: "text", placeholder: "jsmith" },
+
+                email: { label: "Email", type: "text", placeholder: "Enter your email" },
                 password: { label: "Password", type: "password" }
             },
             async authorize(credentials, req) {
                 console.log(credentials);
 
                 // Add logic here to look up the user from the credentials supplied
-                const {username,password} = credentials;
-                const user = await dbConnect(collectionNames.TEST_USER).findOne({username})
-                const isPasswordOk = password == user.password
-                // const user = { id: "1", name: "J Smith", email: "jsmith@example.com" }
+                // const {username,password} = credentials;
+                // const user = await dbConnect(collectionNames.TEST_USER).findOne({username})
+                // const isPasswordOk = password == user.password
+                // const user = await loginUser(credentials)
+                // console.log(user);
 
                 if (isPasswordOk) {
                     // Any object returned will be saved in `user` property of the JWT
@@ -34,21 +38,21 @@ export const authOptions = {
                 }
             }
         })
-    ],
-    callbacks: {
-        async session({ session, token, user }) {
-            if(token) {
-                session.user.username = token.username;
-                session.user.role = token.role
-            }
-            return session
-          },
-          async jwt({ token, user, account, profile, isNewUser }) {
-            if(user){
-                token.username = user.username
-                token.role = user.role
-            }
-            return token
-          }
-      }
+    ]
+    // callbacks: {
+    //     async session({ session, token, user }) {
+    //         if(token) {
+    //             session.user.username = token.username;
+    //             session.user.role = token.role
+    //         }
+    //         return session
+    //       },
+    //       async jwt({ token, user, account, profile, isNewUser }) {
+    //         if(user){
+    //             token.username = user.username
+    //             token.role = user.role
+    //         }
+    //         return token
+    //       }
+    //   }
 }
