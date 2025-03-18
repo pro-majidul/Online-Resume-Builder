@@ -37,9 +37,9 @@ const ResumeTemplates = () => {
       : resumeTemplates.filter((template) => template.category === selectedCategory);
 
   return (
-    <div className="container mx-auto my-10 p-6 grid grid-cols-12 gap-4">
+    <div className="container mx-auto my-10 p-6 grid lg:grid-cols-12 gap-4">
       {/* Left Sidebar - Fixed Category Filter */}
-      <div className="col-span-3">
+      <div className="lg:col-span-2">
         <div className="sticky top-20 flex flex-col gap-4">
           {categories.map((category) => (
             <button
@@ -63,8 +63,8 @@ const ResumeTemplates = () => {
       </div>
 
       {/* Right Side - Scrollable Templates */}
-      <div className="col-span-9  scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 p-4   rounded-md">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="lg:col-span-10  scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 p-4   rounded-md">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredTemplates.map((template) => (
             <div
               key={template.id}
@@ -83,9 +83,9 @@ const ResumeTemplates = () => {
               />
 
               {/* Card Details */}
-              <div className="p-4 text-center bg-white">
-                <h3 className="text-lg font-semibold text-gray-800">{template.title}</h3>
-                <p className="text-sm text-gray-500">{template.category}</p>
+              <div className="p-4 text-center">
+                <h3 className=" text-xs md:text-lg font-semibold text-gray-800">{template.title}</h3>
+                <p className="text-xs md:text-sm text-gray-500">{template.category}</p>
               </div>
 
               {/* Hover Effect - Use Template Button */}
