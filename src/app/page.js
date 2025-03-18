@@ -5,15 +5,18 @@ import Hero from "@/components/Hero";
 import Templates from "@/components/Templates";
 import Testimonial from "@/components/Testimonial";
 import { getServerSession } from "next-auth";
-import { authOptions } from "./api/auth/[...nextauth]/route";
 import AiPowerAssistant from "@/components/AiPowerAssistant";
+import UserInfo from "@/components/UserInfo";
+import { authOptions } from "@/lib/authOptions";
 
-export default function Home() {
-  const session = getServerSession(authOptions);
+export default async function Home() {
+  
   return (
     <div className=" ">
       {/* Hero/Banner section */}
       <div className="container mx-auto ">
+        {/* <UserInfo></UserInfo>
+        {JSON.stringify(session)} */}
         <Hero></Hero>
       </div>
 
