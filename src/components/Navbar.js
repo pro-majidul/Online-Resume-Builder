@@ -68,11 +68,12 @@ const Navbar = () => {
           <div className="flex items-center gap-4 lg:justify-end">
             {/* User Profile or Sign-Up Button */}
             <div className="hidden lg:block">
-              {session ? (
+              <Link href="/signupPage">SignUp</Link>
+              {/* {session ? (
                 <LogoutButton />
               ) : (
                 <LoginButton />
-              )}
+              )} */}
             </div>
 
             {/* Medium Screens: Sign-up Button & Menu Toggle */}
