@@ -2,7 +2,10 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { signIn } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
+import Swal from 'sweetalert2'
 export default function LoginForm () {
+    const router = useRouter();
   const {
     register,
     reset,
@@ -17,23 +20,34 @@ export default function LoginForm () {
       const result = await signIn('credentials', {
         email,
         password,
-        redirect: false,
-        callbackUrl: '/' // Redirect after login
+        callbackUrl: '/' ,// Redirect after login
+        redirect: false
       })
 
-      console.log(result) // Debugging: Check if authentication works
-      if (result?.error) {
-        alert('Authentication faild!')
-        console.error('Login failed:', result.error)
-      } else {
-        alert('Success fully  loged in!')
+     
+      if(result.ok) {
+        Swal.fire({
+            title: "Successfully Loged in!",
+            icon: "success",
+            draggable: true
+          });
+        router.push('/')
+        reset()
+      }else {
+        alert('')
+        Swal.fire({
+            title: "Authentication in faild!",
+            icon: "error",
+            draggable: true
+          });
       }
     } catch (error) {
-      console.log(error)
-      alert('Authentication faild!')
+        Swal.fire({
+            title: "Authentication in faild!",
+            icon: "error",
+            draggable: true
+          });
     }
-
-    reset()
   }
   return (
     <div>

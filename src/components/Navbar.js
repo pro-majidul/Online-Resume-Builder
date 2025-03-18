@@ -11,8 +11,8 @@ import { useSession } from "next-auth/react";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
-  // const user = { name: "John Doe", userPhoto: "/logo.png" };
-  // const user = "";
+
+  const { data: session, status } = useSession();
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -38,8 +38,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
- 
-  const { data: session } = useSession();
+
   return (
     <div className="h-16">
       <nav
@@ -68,22 +67,13 @@ const Navbar = () => {
           <div className="flex items-center gap-4 lg:justify-end">
             {/* User Profile or Sign-Up Button */}
             <div className="hidden lg:block">
-              <Link href="/signupPage">SignUp</Link>
-              {/* {session ? (
-                <LogoutButton />
-              ) : (
-                <LoginButton />
-              )} */}
+              {status == "authenticated" ? (<LogoutButton />) : (<Link href="/signupPage" className="hover:bg-gray-300 px-6 py-2 border-2 rounded-3xl cursor-pointer">SignUp</Link>)}
             </div>
 
             {/* Medium Screens: Sign-up Button & Menu Toggle */}
             <div className="flex items-center gap-4 lg:hidden">
               <div className="hidden md:block">
-              {session ? (
-                <LogoutButton />
-              ) : (
-                <LoginButton />
-              )}
+                {status == "authenticated" ? (<LogoutButton />) : (<Link href="/signupPage">SignUp</Link>)}
               </div>
 
               {/* Mobile & Medium Menu Toggle */}
@@ -113,11 +103,7 @@ const Navbar = () => {
 
             {/* Sign-up Button in Mobile Menu (Hidden on Medium) */}
             <div className="md:hidden flex justify-center pb-4">
-            {session ? (
-                <LogoutButton />
-              ) : (
-                <LoginButton />
-              )}
+              {status == "authenticated" ? (<LogoutButton />) : (<Link href="/signupPage">SignUp</Link>)}
             </div>
           </div>
         )}
