@@ -10,8 +10,7 @@ import UserInfo from "@/components/UserInfo";
 import { authOptions } from "@/lib/authOptions";
 
 export default async function Home() {
-  const session = await getServerSession(authOptions);
-  console.log(session);
+  
   return (
     <div className=" ">
       {/* Hero/Banner section */}

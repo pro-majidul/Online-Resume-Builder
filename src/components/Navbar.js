@@ -4,14 +4,15 @@ import Link from "next/link";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Image from "next/image";
 import logo from "../../public/picture/applicant.png";
-import CustomButton from "./shared/CustomButton";
 import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
+import { useSession } from "next-auth/react";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
-  // const user = { name: "John Doe", userPhoto: "/logo.png" };
-  const user = "";
+
+  const { data: session, status } = useSession();
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -37,12 +38,12 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+
   return (
     <div className="h-16">
       <nav
-        className={`fixed top-0 w-full z-50 py-4 px-8 transition-all duration-300 ${
-          scrolling ? "bg-white shadow-md" : "bg-transparent"
-        }`}
+        className={`fixed top-0 w-full z-50 py-4 px-8 transition-all duration-300 ${scrolling ? "bg-white shadow-md" : "bg-transparent"
+          }`}
       >
         <div className="container mx-auto flex justify-between items-center lg:grid lg:grid-cols-3">
           {/* Logo (Left Side) */}
@@ -66,40 +67,13 @@ const Navbar = () => {
           <div className="flex items-center gap-4 lg:justify-end">
             {/* User Profile or Sign-Up Button */}
             <div className="hidden lg:block">
-              {/* {user ? (
-                <Link href="/profilePage">
-                  <Image
-                    src={user.userPhoto}
-                    alt="Profile"
-                    width={30}
-                    height={30}
-                    className="rounded-full cursor-pointer"
-                  />
-                </Link>
-              ) : (
-                <Link href="/signupPage">
-                  <CustomButton title="Sign Up" />
-                </Link>
-              )} */}
-              <LoginButton></LoginButton>
+              {status == "authenticated" ? (<LogoutButton />) : (<Link href="/signupPage" className="hover:bg-gray-300 px-6 py-2 border-2 rounded-3xl cursor-pointer">SignUp</Link>)}
             </div>
 
             {/* Medium Screens: Sign-up Button & Menu Toggle */}
             <div className="flex items-center gap-4 lg:hidden">
               <div className="hidden md:block">
-                {!user ? (
-                  <LoginButton></LoginButton>
-                ) : (
-                  <Link href="/profilePage">
-                    <Image
-                      src={user.userPhoto}
-                      alt="Profile"
-                      width={30}
-                      height={30}
-                      className="rounded-full cursor-pointer"
-                    />
-                  </Link>
-                )}
+                {status == "authenticated" ? (<LogoutButton />) : (<Link href="/signupPage">SignUp</Link>)}
               </div>
 
               {/* Mobile & Medium Menu Toggle */}
@@ -129,23 +103,7 @@ const Navbar = () => {
 
             {/* Sign-up Button in Mobile Menu (Hidden on Medium) */}
             <div className="md:hidden flex justify-center pb-4">
-              {!user ? (
-                // <Link href="/signupPage">
-                //   <CustomButton title="Sign Up"/>
-                // </Link>
-                <LoginButton></LoginButton>
-              ) : (
-                <Link href="/profilePage">
-                  <Image
-                    src={user.userPhoto}
-                    alt="Profile"
-                    width={30}
-                    height={30}
-                    className="rounded-full cursor-pointer"
-                  />
-                </Link>
-                
-              )}
+              {status == "authenticated" ? (<LogoutButton />) : (<Link href="/signupPage">SignUp</Link>)}
             </div>
           </div>
         )}
