@@ -1,22 +1,32 @@
 'use client'
 import React from 'react'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import ParallaxHeader from '@/components/shared/ParallaxHeader'
+import CustomButton from '@/components/shared/CustomButton'
 
 const ResumeTemplates = () => {
   const category = [
     { name: 'Modern', icon: '/icon/modern.png' },
     { name: 'Creative', icon: '/icon/creative.png' },
     { name: 'Minimalist', icon: '/icon/compact-layout.png' },
-    { name: 'Professional', icon: '/icon/professional.png' },
+    { name: 'Professional', icon: '/icon/professional.png' }
+  ]
+
+  const templates = [
+    '/picture/c7.jpg',
+    '/picture/c3.jpg',
+    '/picture/c4.jpg',
+    '/picture/c5.jpg',
+    '/picture/c6.jpg'
   ]
   return (
     <div className='bg-gray-50 min-h-screen font-sans'>
       {/* Hero Section */}
       <ParallaxHeader
-      headline="Elevate Your Career with a Stunning Resume"
-      title="Choose from expertly designed templates to make a lasting impression
-          on employers."
+        headline='Elevate Your Career with a Stunning Resume'
+        title='Choose from expertly designed templates to make a lasting impression
+          on employers.'
       ></ParallaxHeader>
 
       {/* Template Categories */}
@@ -47,32 +57,42 @@ const ResumeTemplates = () => {
         <h2 className='mb-10 font-extrabold text-gray-900 text-4xl text-center'>
           Best-Selling Resume Templates
         </h2>
-        <div className='gap-6 grid grid-cols-1 md:grid-cols-3'>
-          {[1, 2, 3, 4, 5, 6].map(template => (
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className='gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3'
+        >
+          {templates.map((resume, index) => (
             <motion.div
-              key={template}
-              whileHover={{ scale: 1.03 }}
-              className='bg-white shadow-lg hover:shadow-2xl rounded-xl overflow-hidden transition-transform cursor-pointer'
+              key={index}
+              whileHover={{ scale: 1.05 }}
+              className='group relative shadow-lg border border-gray-200 hover:border-yellow-400 rounded-xl overflow-hidden transition-all duration-300 ease-in-out'
             >
-              <img
-                src={`https://via.placeholder.com/400x500?text=Template+${template}`}
-                alt={`Template ${template}`}
-                className='rounded-t-xl w-full h-72 object-cover'
+              {/* Resume Image */}
+              <Image
+                src={resume}
+                alt='template'
+                width={300}
+                height={400}
+                className='brightness-100 group-hover:brightness-50 rounded-xl w-full h-auto group-hover:scale-110 transition-all duration-500 ease-in-out transform'
               />
-              <div className='p-6'>
-                <h3 className='mb-2 font-bold text-gray-800 text-xl'>
-                  Template {template}
+
+              {/* Overlay Content */}
+              <div className='absolute inset-0 flex flex-col justify-center items-center bg-opacity-60 opacity-0 group-hover:opacity-100 p-6 rounded-xl transition-opacity duration-300'>
+                <h3 className='font-bold text-white text-lg'>
+                  Professional Resume
                 </h3>
-                <p className='mb-4 text-gray-600'>
-                  Designed for professionals seeking a competitive edge.
+                <p className='mt-2 text-gray-300 text-sm'>
+                  Stand out with a polished resume.
                 </p>
-                <button className='bg-blue-700 hover:bg-blue-800 px-6 py-2 rounded-lg w-full font-semibold text-white transition'>
-                  Choose Template
-                </button>
+                <div className='mt-4'>
+                  <CustomButton title='Use Template' />
+                </div>
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
 
       {/* Call-to-Action Section */}
