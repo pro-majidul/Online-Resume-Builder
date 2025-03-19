@@ -3,7 +3,7 @@ import { revalidatePath } from "next/cache"
 
 export async function GET() {
     
-    const data = await dbConnect(collectionNames.TEST_USER).find({}).toArray()
+    const data = await dbConnect(collectionNames.USERS).find({}).toArray()
    
     return Response.json(data)
   }
