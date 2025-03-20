@@ -48,7 +48,7 @@ const ResumeTemplates = () => {
               onClick={() => setSelectedCategory(category)}
               className={`px-4 py-2 rounded-full transition-all duration-300 ${
                 selectedCategory === category
-                  ? "bg-[#F9F51A] text-white"
+                  ? "bg-[#F9F51A] "
                   : "bg-gray-200 text-gray-800 hover:bg-gray-300"
               }`}
             >

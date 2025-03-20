@@ -4,10 +4,8 @@ import Features from "@/components/Features";
 import Hero from "@/components/Hero";
 import Templates from "@/components/Templates";
 import Testimonial from "@/components/Testimonial";
-import { getServerSession } from "next-auth";
 import AiPowerAssistant from "@/components/AiPowerAssistant";
-import UserInfo from "@/components/UserInfo";
-import { authOptions } from "@/lib/authOptions";
+
 
 export default async function Home() {
   

@@ -4,7 +4,6 @@ import Link from "next/link";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Image from "next/image";
 import logo from "../../public/picture/applicant.png";
-import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
 import { useSession } from "next-auth/react";
 
@@ -16,7 +15,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "Resume", path: "/myResume" },
+    { name: "Resume", path: "/resume" },
     { name: "Templates", path: "/resumeTemplates" },
     { name: "About Us", path: "/aboutPage" },
     { name: "Contact Us", path: "/contactPage" },
@@ -67,7 +66,7 @@ const Navbar = () => {
           <div className="flex items-center gap-4 lg:justify-end">
             {/* User Profile or Sign-Up Button */}
             <div className="hidden lg:block">
-              {status == "authenticated" ? (<LogoutButton />) : (<Link href="/signupPage" className="hover:bg-gray-300 px-6 py-2 border-2 rounded-3xl cursor-pointer">SignUp</Link>)}
+              {status == "authenticated" ? (<LogoutButton />) : (<Link href="/signupPage" className=" space-x-2 bg-[#FEDBFF] px-4 py-2 rounded-full w-fit overflow-hidden font-medium text-gray-800 text-sm">Sign Up</Link>)}
             </div>
 
             {/* Medium Screens: Sign-up Button & Menu Toggle */}
