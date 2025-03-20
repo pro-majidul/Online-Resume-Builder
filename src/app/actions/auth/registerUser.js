@@ -5,7 +5,7 @@ import dbConnect, { collectionNames } from "@/lib/dbConnect";
 export const registerUser = async (payload) => {
     try {
       //   const db = await dbConnect();
-        const userCollection = dbConnect(collectionNames.TEST_USER);
+        const userCollection = dbConnect(collectionNames.USERS);
 
         // Extract email & password
         const { email, password } = payload;

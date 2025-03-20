@@ -1,36 +1,61 @@
-
-"use client"
+'use client'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { Link } from 'lucide-react'
 import { registerUser } from '@/app/actions/auth/registerUser'
+import Swal from 'sweetalert2'
+import { signIn } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
+
 export default function SignupForm () {
-    const {
-        register,
-        reset,
-        handleSubmit,
-        formState: { errors }
-      } = useForm()
-    
-      const onSubmit = async (data) => {
-        try {
-            const result = await registerUser({
-                username: data.username,
-                email: data.email,
-                password: data.password
-            });
-    
-            if (result?.error) {
-                console.error("Signup Error:", result.error);
-            } else {
-                console.log("User Registered:", result);
-                reset();
-            }
-        } catch (error) {
-            console.error("Signup Error:", error);
+  const router = useRouter()
+  const {
+    register,
+    reset,
+    handleSubmit,
+    formState: { errors }
+  } = useForm()
+
+  const onSubmit = async data => {
+    try {
+      const result = await registerUser({
+        username: data.username,
+        email: data.email,
+        password: data.password
+      })
+
+      if (result?.error) {
+        console.error('Signup Error:', result.error)
+      } else {
+        console.log('User Registered:', result)
+
+        Swal.fire({
+          title: 'Successfully Registered!',
+          icon: 'success',
+          draggable: true
+        })
+
+        // **Automatically log in the user after registration**
+        const loginResult = await signIn('credentials', {
+          email: data.email,
+          password: data.password,
+          redirect: false
+        })
+
+        if (loginResult.ok) {
+          router.push('/')
+          reset()
         }
-    };
-    
+      }
+    } catch (error) {
+      Swal.fire({
+        title: "Registration Failed!",
+        icon: "error",
+        draggable: true
+      });
+    }
+  }
+
   return (
     <div>
       {' '}
