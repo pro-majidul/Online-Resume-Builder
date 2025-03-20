@@ -8,6 +8,7 @@ import r4 from "../../../../public/picture/c6.jpg";
 import r5 from "../../../../public/picture/c7.jpg";
 import r6 from "../../../../public/picture/c8.jpg";
 import CustomButton from "@/components/shared/CustomButton";
+import Link from "next/link";
 
 const resumeTemplates = [
   { id: 1, category: "Engineer", title: "Junior Software Engineer", image: r1 },
@@ -57,7 +58,9 @@ const ResumeTemplates = () => {
           <div className="border mt-4"></div>
           <p className="text-center">OR</p>
           <div className="flex justify-center my-5">
-            <CustomButton title={"Create My Resume"} />
+            <Link href={'CreateMyResume'}>
+              <CustomButton title={"Create My Resume"} />
+            </Link>
           </div>
         </div>
       </div>
