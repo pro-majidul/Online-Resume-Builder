@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import NextAuthSeassionProvider from "@/Providers/NextAuthSeassionProvider";
+import { ThemeProvider } from "@/components/Context/ThemeContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,17 +23,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <NextAuthSeassionProvider>
-          <Navbar></Navbar>
-          <main className="min-h-screen">{children}</main>
-          <Footer></Footer>
-        </NextAuthSeassionProvider>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <ThemeProvider>
+          <NextAuthSeassionProvider>
+            <Navbar />
+            <main className="min-h-screen">{children}</main>
+            <Footer />
+          </NextAuthSeassionProvider>
+        </ThemeProvider>
       </body>
-
     </html>
   );
 }

@@ -1,11 +1,10 @@
 'use client'
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { Link } from 'lucide-react'
-import { registerUser } from '@/app/actions/auth/registerUser'
 import Swal from 'sweetalert2'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
+import { registerUser } from '@/utils/api'
 
 export default function SignupForm () {
   const router = useRouter()
@@ -19,21 +18,22 @@ export default function SignupForm () {
   const onSubmit = async data => {
     try {
       const result = await registerUser({
-        username: data.username,
         email: data.email,
         password: data.password
       })
 
       if (result?.error) {
-        console.error('Signup Error:', result.error)
-      } else {
-        console.log('User Registered:', result)
-
         Swal.fire({
-          title: 'Successfully Registered!',
-          icon: 'success',
-          draggable: true
-        })
+          title: "Signup Failed!",
+          text: result.error.message || "Something went wrong",
+          icon: "error",
+        });
+      } else {
+        Swal.fire({
+          title: "Successfully Registered!",
+          icon: "success",
+          timer: 2000
+        });
 
         // **Automatically log in the user after registration**
         const loginResult = await signIn('credentials', {
@@ -42,15 +42,21 @@ export default function SignupForm () {
           redirect: false
         })
 
-        if (loginResult.ok) {
-          router.push('/')
-          reset()
+        if (loginResult?.ok) {
+          router.push('/');
+          reset();
+        } else {
+          Swal.fire({
+            title: "Login Failed!",
+            icon: "error"
+          });
         }
       }
     } catch (error) {
       Swal.fire({
         title: "Registration Failed!",
         icon: "error",
+        text: error.message || "Please try again",
         draggable: true
       });
     }
