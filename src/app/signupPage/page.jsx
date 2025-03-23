@@ -1,23 +1,31 @@
 'use client'
 
 import Image from 'next/image'
-import { FaGoogle, FaGithub, FaLinkedin } from 'react-icons/fa'
 
 import SignupForm from './components/SignupForm'
 import SocialLogin from '../loginPage/components/SocialLogin'
+import { useTheme } from '@/components/Context/ThemeContext';
 
 export default function Signup () {
+  const { theme } = useTheme(); // Get the theme from context
+  
+    // Conditional colors based on theme
+    const signUpBg = theme === "light" ? "bg-gray-100" : "bg-gray-800";
+    const textColor = theme === "light" ? "text-[#181A1B]" : "text-white";
+    const linkHoverColor = theme === "light" ? "hover:text-black" : "hover:text-gray-400";
+    const buttonBg = theme === "light" ? "bg-[#F9F51A]" : "bg-[#333]";
+    const buttonText = theme === "light" ? "text-[#181A1B]" : "text-white";
   
 
   return (
-    <div className='lg:flex justify-center items-center gap-x-52 bg-[#F4FAFB] px-4 py-10 min-h-screen'>
+    <div className={`lg:flex justify-center ${signUpBg} ${textColor} items-center gap-x-52 bg-[#F4FAFB] p-20 py-10 min-h-screen`}>
       {/* left Section (Image) */}
       <div className='w-full max-w-md h-auto'>
         <Image
           src='/signup.jpg'
           alt='Signup Image'
-          width={300} // Increased width
-          height={300} // Increased height
+          width={270} // Increased width
+          height={270} // Increased height
           className='w-full h-auto object-cover'
           priority
         />
