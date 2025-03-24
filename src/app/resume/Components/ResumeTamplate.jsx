@@ -94,7 +94,7 @@ const ResumeTemplates = () => {
               {/* Hover Effect - Use Template Button */}
               <div className="absolute inset-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center">
                 <div className="flex justify-center my-5">
-                  <CustomButton title={"Use Template"} />
+                <Link href=''>  <CustomButton title={"Use Template"} /></Link>
                 </div>
               </div>
             </div>
