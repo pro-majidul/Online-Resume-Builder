@@ -16,8 +16,8 @@ const ResumeTemplate = () => {
     };
     useEffect(()=>{
       fetchTemplate()
-    },[])
-    console.log(selectedTemplate)
+    },[id])
+    console.log('id',selectedTemplate)
   return (
     <>
     <div className="relative w-3xl mx-auto  group overflow-hidden shadow-xl  

@@ -87,7 +87,7 @@ const ResumeTemplates = () => {
 
               {/* Card Details */}
               <div className="p-4 text-center">
-                <h3 className=" text-xs md:text-lg font-semibold text-gray-800">{template.title}</h3>
+                <h3 className=" text-xs md:text-lg font-semibold ">{template.title}</h3>
                 <p className="text-xs md:text-sm text-gray-500">{template.category}</p>
               </div>
 
