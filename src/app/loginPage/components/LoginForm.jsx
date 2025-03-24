@@ -7,6 +7,7 @@ import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import Swal from 'sweetalert2'
 import { useTheme } from '@/components/Context/ThemeContext'
+import clsx from 'clsx'
 
 export default function LoginForm() {
   const { theme } = useTheme()
@@ -20,10 +21,10 @@ export default function LoginForm() {
 
   const textColor = theme === 'light' ? 'text-[#181A1B]' : 'text-[#E4E6E7]'
   const secondaryColor = theme === 'light' ? 'bg-[#FEDBFF]' : 'bg-[#230024]'
-  const accentColor = theme === 'light' ? '#20252D' : '#D2D7DF'
+  const accentColor = theme === 'light' ? 'border-[#20252D]' : 'border-[#D2D7DF]'
   const bgInput = theme === 'light' ? 'bg-[#FFFFFF]/50' : 'bg-[#000000]/50'
 
-  const onSubmit = async data => {
+  const onSubmit = async (data) => {
     const { email, password } = data
 
     try {
@@ -58,11 +59,6 @@ export default function LoginForm() {
     }
   }
 
-  const inputVariants = {
-    hover: { scale: 1.02, boxShadow: '0 0 15px rgba(249, 245, 26, 0.5)' }, // #F9F51A glow
-    focus: { borderColor: '#F9F51A', boxShadow: '0 0 20px rgba(249, 245, 26, 0.7)' }
-  }
-
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       {/* Username */}
@@ -70,21 +66,22 @@ export default function LoginForm() {
         initial={{ x: -50, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.5 }}
+        whileHover={{ scale: 1.02 }}
         className="group relative"
       >
-        <FaUser className={`absolute left-4 top-1/2 -translate-y-1/2 text-[#F9F51A] group-focus-within:text-${accentColor}`} />
+        <FaUser className="top-1/2 left-4 absolute text-[#F9F51A] -translate-y-1/2" />
         <input
           type="text"
           {...register('username', { required: 'Username is required' })}
-          className={`w-full pl-12 pr-4 py-3 ${bgInput} border border-${accentColor}/50 rounded-xl ${textColor} placeholder-${accentColor}/70 focus:outline-none focus:border-[#F9F51A] transition-all duration-300`}
+          className={clsx(
+            "py-3 pr-4 pl-12 rounded-xl focus:outline-none w-full transition-all duration-300 placeholder-gray-500",
+            textColor,
+            bgInput,
+            accentColor
+          )}
           placeholder="Enter Username"
-          whileHover="hover"
-          whileFocus="focus"
-          variants={inputVariants}
         />
-        {errors.username && (
-          <p className="mt-1 text-red-500 text-xs">{errors.username?.message}</p>
-        )}
+        {errors.username && <p className="mt-1 text-red-500 text-xs">{errors.username?.message}</p>}
       </motion.div>
 
       {/* Email */}
@@ -92,9 +89,10 @@ export default function LoginForm() {
         initial={{ x: -50, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ delay: 0.4, duration: 0.5 }}
+        whileHover={{ scale: 1.02 }}
         className="group relative"
       >
-        <FaEnvelope className={`absolute left-4 top-1/2 -translate-y-1/2 text-[#F9F51A] group-focus-within:text-${accentColor}`} />
+        <FaEnvelope className="top-1/2 left-4 absolute text-[#F9F51A] -translate-y-1/2" />
         <input
           type="email"
           {...register('email', {
@@ -104,15 +102,15 @@ export default function LoginForm() {
               message: 'Invalid email format'
             }
           })}
-          className={`w-full pl-12 pr-4 py-3 ${bgInput} border border-${accentColor}/50 rounded-xl ${textColor} placeholder-${accentColor}/70 focus:outline-none focus:border-[#F9F51A] transition-all duration-300`}
+          className={clsx(
+            "py-3 pr-4 pl-12 rounded-xl focus:outline-none w-full transition-all duration-300 placeholder-gray-500",
+            textColor,
+            bgInput,
+            accentColor
+          )}
           placeholder="Enter Email"
-          whileHover="hover"
-          whileFocus="focus"
-          variants={inputVariants}
         />
-        {errors.email && (
-          <p className="mt-1 text-red-500 text-xs">{errors.email?.message}</p>
-        )}
+        {errors.email && <p className="mt-1 text-red-500 text-xs">{errors.email?.message}</p>}
       </motion.div>
 
       {/* Password */}
@@ -120,9 +118,10 @@ export default function LoginForm() {
         initial={{ x: -50, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ delay: 0.6, duration: 0.5 }}
+        whileHover={{ scale: 1.02 }}
         className="group relative"
       >
-        <FaLock className={`absolute left-4 top-1/2 -translate-y-1/2 text-[#F9F51A] group-focus-within:text-${accentColor}`} />
+        <FaLock className="top-1/2 left-4 absolute text-[#F9F51A] -translate-y-1/2" />
         <input
           type="password"
           {...register('password', {
@@ -132,15 +131,15 @@ export default function LoginForm() {
               message: 'Password must be at least 6 characters long'
             }
           })}
-          className={`w-full pl-12 pr-4 py-3 ${bgInput} border border-${accentColor}/50 rounded-xl ${textColor} placeholder-${accentColor}/70 focus:outline-none focus:border-[#F9F51A] transition-all duration-300`}
+          className={clsx(
+            "py-3 pr-4 pl-12 rounded-xl focus:outline-none w-full transition-all duration-300 placeholder-gray-500",
+            textColor,
+            bgInput,
+            accentColor
+          )}
           placeholder="Enter Password"
-          whileHover="hover"
-          whileFocus="focus"
-          variants={inputVariants}
         />
-        {errors.password && (
-          <p className="mt-1 text-red-500 text-xs">{errors.password?.message}</p>
-        )}
+        {errors.password && <p className="mt-1 text-red-500 text-xs">{errors.password?.message}</p>}
       </motion.div>
 
       {/* Submit Button */}
@@ -150,7 +149,7 @@ export default function LoginForm() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.8, duration: 0.5 }}
         whileHover={{ scale: 1.05, boxShadow: '0 0 25px rgba(249, 245, 26, 0.8)' }}
-        className={`w-full py-3 bg-[#F9F51A] ${textColor} font-bold rounded-xl hover:bg-${accentColor} hover:text-[#8d8d7b] transition-all duration-300`}
+        className="bg-[#F9F51A] py-3 rounded-xl w-full font-bold text-black hover:text-[#8d8d7b] transition-all duration-300"
       >
         Log In Now
       </motion.button>
