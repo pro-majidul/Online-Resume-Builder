@@ -27,6 +27,7 @@ export default function SignupForm() {
   const onSubmit = async data => {
     try {
       const result = await registerUser({
+        username: data.username,
         email: data.email,
         password: data.password
       })
@@ -83,15 +84,15 @@ export default function SignupForm() {
         transition={{ delay: 0.2, duration: 0.5 }}
         className="group relative"
       >
-        <FaUser className={`absolute left-4 top-1/2 -translate-y-1/2 text-[#F9F51A] group-focus-within:text-${accentColor}`} />
-        <input
+        <FaUser className="top-1/2 left-4 absolute text-[#F9F51A] -translate-y-1/2" />
+        <motion.input
           type="text"
           {...register('username', { required: 'Username is required' })}
-          className={`w-full pl-12 pr-4 py-3 ${bgInput} border border-${accentColor}/50 rounded-xl ${textColor} placeholder-${accentColor}/70 focus:outline-none focus:border-[#F9F51A] transition-all duration-300`}
+          className={`w-full pl-12 pr-4 py-3 ${bgInput} border border-gray-300 rounded-xl ${textColor} placeholder-gray-500 focus:outline-none focus:border-[#F9F51A] transition-all duration-300`}
           placeholder="Enter Username"
+          variants={inputVariants}
           whileHover="hover"
           whileFocus="focus"
-          variants={inputVariants}
         />
         {errors.username && (
           <p className="mt-1 text-red-500 text-xs">{errors.username?.message}</p>
@@ -105,8 +106,8 @@ export default function SignupForm() {
         transition={{ delay: 0.4, duration: 0.5 }}
         className="group relative"
       >
-        <FaEnvelope className={`absolute left-4 top-1/2 -translate-y-1/2 text-[#F9F51A] group-focus-within:text-${accentColor}`} />
-        <input
+        <FaEnvelope className="top-1/2 left-4 absolute text-[#F9F51A] -translate-y-1/2" />
+        <motion.input
           type="email"
           {...register('email', {
             required: 'Email is required',
@@ -115,11 +116,11 @@ export default function SignupForm() {
               message: 'Invalid email format'
             }
           })}
-          className={`w-full pl-12 pr-4 py-3 ${bgInput} border border-${accentColor}/50 rounded-xl ${textColor} placeholder-${accentColor}/70 focus:outline-none focus:border-[#F9F51A] transition-all duration-300`}
+          className={`w-full pl-12 pr-4 py-3 ${bgInput} border border-gray-300 rounded-xl ${textColor} placeholder-gray-500 focus:outline-none focus:border-[#F9F51A] transition-all duration-300`}
           placeholder="Enter Email"
+          variants={inputVariants}
           whileHover="hover"
           whileFocus="focus"
-          variants={inputVariants}
         />
         {errors.email && (
           <p className="mt-1 text-red-500 text-xs">{errors.email?.message}</p>
@@ -133,8 +134,8 @@ export default function SignupForm() {
         transition={{ delay: 0.6, duration: 0.5 }}
         className="group relative"
       >
-        <FaLock className={`absolute left-4 top-1/2 -translate-y-1/2 text-[#F9F51A] group-focus-within:text-${accentColor}`} />
-        <input
+        <FaLock className="top-1/2 left-4 absolute text-[#F9F51A] -translate-y-1/2" />
+        <motion.input
           type="password"
           {...register('password', {
             required: 'Password is required',
@@ -143,11 +144,11 @@ export default function SignupForm() {
               message: 'Password must be at least 6 characters long'
             }
           })}
-          className={`w-full pl-12 pr-4 py-3 ${bgInput} border border-${accentColor}/50 rounded-xl ${textColor} placeholder-${accentColor}/70 focus:outline-none focus:border-[#F9F51A] transition-all duration-300`}
+          className={`w-full pl-12 pr-4 py-3 ${bgInput} border border-gray-300 rounded-xl ${textColor} placeholder-gray-500 focus:outline-none focus:border-[#F9F51A] transition-all duration-300`}
           placeholder="Enter Password"
+          variants={inputVariants}
           whileHover="hover"
           whileFocus="focus"
-          variants={inputVariants}
         />
         {errors.password && (
           <p className="mt-1 text-red-500 text-xs">{errors.password?.message}</p>
@@ -161,7 +162,7 @@ export default function SignupForm() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.8, duration: 0.5 }}
         whileHover={{ scale: 1.05, boxShadow: '0 0 25px rgba(249, 245, 26, 0.8)' }}
-        className={`w-full py-3 bg-[#F9F51A] ${textColor} font-bold rounded-xl hover:bg-${accentColor} hover:text-[#8d8d7b] transition-all duration-300`}
+        className={`w-full py-3 bg-[#F9F51A] text-black font-bold rounded-xl hover:bg-${theme === 'light' ? '[#F9F51A]' : '[#D2D7DF]'} transition-all duration-300`}
       >
         Sign Up Now
       </motion.button>

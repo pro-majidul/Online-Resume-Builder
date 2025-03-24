@@ -40,7 +40,7 @@ export default function SocialLogin () {
           onClick={() => handleSocialLogin('linkdin')}
           className='flex justify-center items-center hover:bg-gray-100 px-1 lg:px-4 py-2 border rounded-lg w-1/2 transition'
         >
-          <FaLinkedin className='mr-0 lg:mr-2' /> Google
+          <FaLinkedin className='mr-0 lg:mr-2' /> Linkedin
         </button>
         <button
           onClick={() => handleSocialLogin('github')}
