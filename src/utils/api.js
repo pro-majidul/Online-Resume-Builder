@@ -14,9 +14,16 @@ export const registerUser = async (userData) => {
 
 // Login User
 export const loginUser = async (userData) => {
-    const res = await API.post("/signin", userData);
-    return res.data;
-  };
+  const res = await API.post("/signin", userData);
+  return res.data;
+};
+
+
+// Check Lockout Status
+export const checkLockoutStatus = async (email) => {
+  const res = await API.post("/check-lockout", { email });
+  return res.data;
+};
 
 // Logout User
 export const signout = async () => {
