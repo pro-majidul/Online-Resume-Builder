@@ -9,12 +9,12 @@ import { GrLinkedin } from "react-icons/gr";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import footerlogo from "../../public/picture/applicant.png";
-import { useTheme } from "./Context/ThemeContext"; // Import the useTheme hook
+import { useTheme } from "./Context/ThemeContext"; 
 
 const Footer = () => {
   const { theme } = useTheme(); // Get the theme from context
 
-  // Conditional colors based on theme
+  // Conditional based on theme
   const footerBg = theme === "light" ? "bg-gray-100" : "bg-gray-800";
   const textColor = theme === "light" ? "text-[#181A1B]" : "text-white";
   const linkHoverColor =

@@ -1,7 +1,2 @@
-export const metadata = {
-  title: "Resume Maker",
-  description: "Make your Resume with Resume Maker",
-};
-
-import RootLayout from "./RootLayout";
-export default RootLayout;
+// meta data here 
+// if metadata in layout then show error

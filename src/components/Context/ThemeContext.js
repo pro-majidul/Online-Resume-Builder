@@ -1,22 +1,22 @@
-"use client"; // Required because we're using useState & useEffect
+"use client";
 
 import { createContext, useContext, useState, useEffect } from "react";
 
-// Create the Theme Context
+// Create Theme Context
 const ThemeContext = createContext();
 
 // Create a Provider Component
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState("light");
 
-  // Load theme from localStorage when the app starts
+  // when start then load dark/light mode from localStorage
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme") || "light";
     setTheme(storedTheme);
     document.documentElement.classList.add(storedTheme);
   }, []);
 
-  // Apply the selected theme and store it in localStorage
+  // store dark/light in localStorage
   useEffect(() => {
     document.documentElement.classList.remove("light", "dark");
     document.documentElement.classList.add(theme);
@@ -30,7 +30,7 @@ export const ThemeProvider = ({ children }) => {
   );
 };
 
-// Create a Custom Hook to use the Theme Context
+// Crate Hook for use the Theme Context globaly
 export const useTheme = () => {
   return useContext(ThemeContext);
 };
