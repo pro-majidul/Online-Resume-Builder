@@ -87,14 +87,14 @@ const ResumeTemplates = () => {
 
               {/* Card Details */}
               <div className="p-4 text-center">
-                <h3 className=" text-xs md:text-lg font-semibold text-gray-800">{template.title}</h3>
+                <h3 className=" text-xs md:text-lg font-semibold ">{template.title}</h3>
                 <p className="text-xs md:text-sm text-gray-500">{template.category}</p>
               </div>
 
               {/* Hover Effect - Use Template Button */}
               <div className="absolute inset-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center">
                 <div className="flex justify-center my-5">
-                  <CustomButton title={"Use Template"} />
+                <Link href=''>  <CustomButton title={"Use Template"} /></Link>
                 </div>
               </div>
             </div>

@@ -10,6 +10,8 @@ const AiPowerAssistant = () => {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
+         backgroundAttachment: "fixed"
+
       }}
     >
       <div className="container mx-auto md:flex items-center justify-between gap-5">

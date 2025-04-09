@@ -17,7 +17,8 @@ const Footer = () => {
   // Conditional based on theme
   const footerBg = theme === "light" ? "bg-gray-100" : "bg-gray-800";
   const textColor = theme === "light" ? "text-[#181A1B]" : "text-white";
-  const linkHoverColor = theme === "light" ? "hover:text-black" : "hover:text-gray-400";
+  const linkHoverColor =
+    theme === "light" ? "hover:text-black" : "hover:text-gray-400";
   const buttonBg = theme === "light" ? "bg-[#F9F51A]" : "bg-[#333]";
   const buttonText = theme === "light" ? "text-[#181A1B]" : "text-white";
 
@@ -45,7 +46,9 @@ const Footer = () => {
                 Resume Maker
               </span>
             </div>
-            <address className="my-2 text-gray-800 text-center md:text-start">
+            <address
+              className={`my-2 text-gray-800 ${textColor} text-center md:text-start`}
+            >
               WorkSimpli Software, LLC 1225
               <br />
               Ave Ponce de Leon, Suite 1001 <br />
@@ -57,7 +60,9 @@ const Footer = () => {
             </address>
           </div>
           <div className="col-span-full md:text-center text-left md:col-span-4">
-            <p className={`pb-1 text-2xl font-medium underline underline-offset-8 decoration-2 ${linkHoverColor}`}>
+            <p
+              className={`pb-1 text-2xl font-medium underline underline-offset-8 decoration-2 ${linkHoverColor}`}
+            >
               Quick Links
             </p>
             <ul className="space-y-1 mt-1">
@@ -72,7 +77,10 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link className={`text-xl ${linkHoverColor}`} href="/resumeTemplates">
+                <Link
+                  className={`text-xl ${linkHoverColor}`}
+                  href="/resumeTemplates"
+                >
                   Templates
                 </Link>
               </li>
@@ -82,7 +90,10 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link className={`text-xl ${linkHoverColor}`} href="/contactPage">
+                <Link
+                  className={`text-xl ${linkHoverColor}`}
+                  href="/contactPage"
+                >
                   Contact Us
                 </Link>
               </li>

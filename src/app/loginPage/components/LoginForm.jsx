@@ -1,11 +1,17 @@
 'use client'
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { motion } from 'framer-motion'
+import { FaUser, FaEnvelope, FaLock } from 'react-icons/fa'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import Swal from 'sweetalert2'
-export default function LoginForm () {
-    const router = useRouter();
+import { useTheme } from '@/components/Context/ThemeContext'
+import clsx from 'clsx'
+
+export default function LoginForm() {
+  const { theme } = useTheme()
+  const router = useRouter()
   const {
     register,
     reset,
@@ -13,100 +19,140 @@ export default function LoginForm () {
     formState: { errors }
   } = useForm()
 
-  const onSubmit = async data => {
+  const textColor = theme === 'light' ? 'text-[#181A1B]' : 'text-[#E4E6E7]'
+  const secondaryColor = theme === 'light' ? 'bg-[#FEDBFF]' : 'bg-[#230024]'
+  const accentColor = theme === 'light' ? 'border-[#20252D]' : 'border-[#D2D7DF]'
+  const bgInput = theme === 'light' ? 'bg-[#FFFFFF]/50' : 'bg-[#000000]/50'
+
+  const onSubmit = async (data) => {
     const { email, password } = data
 
     try {
       const result = await signIn('credentials', {
         email,
         password,
-        callbackUrl: '/' ,// Redirect after login
+        callbackUrl: '/',
         redirect: false
       })
 
-     
-      if(result.ok) {
+      if (result?.ok) {
         Swal.fire({
-            title: "Successfully Loged in!",
-            icon: "success",
-            draggable: true
-          });
+          title: "Successfully Logged In!",
+          icon: "success",
+          timer: 2000
+        })
         router.push('/')
         reset()
-      }else {
-        alert('')
+      } else {
         Swal.fire({
-            title: "Authentication in faild!",
-            icon: "error",
-            draggable: true
-          });
+          title: "Authentication Failed!",
+          icon: "error",
+          text: result?.error || "Please check your credentials"
+        })
       }
     } catch (error) {
-        Swal.fire({
-            title: "Authentication in faild!",
-            icon: "error",
-            draggable: true
-          });
+      Swal.fire({
+        title: "Authentication Failed!",
+        icon: "error",
+        text: error.message || "Something went wrong"
+      })
     }
   }
+
   return (
-    <div>
-      <form onSubmit={handleSubmit(onSubmit)} className='space-y-4'>
-        <div>
-          <label className='block ml-3 text-[#17224d]'>Username :</label>
-          <input
-            type='text'
-            {...register('username', { required: 'Full Name is required' })}
-            className='bg-white mt-2 px-4 py-2 border focus:border-blue-400 rounded-3xl focus:outline-none focus:ring w-full'
-          />
-          {errors.username && (
-            <p className='text-red-500 text-sm'>{errors.username?.message}</p>
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+      {/* Username */}
+      <motion.div
+        initial={{ x: -50, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.2, duration: 0.5 }}
+        whileHover={{ scale: 1.02 }}
+        className="group relative"
+      >
+        <FaUser className="top-1/2 left-4 absolute text-[#F9F51A] -translate-y-1/2" />
+        <input
+          type="text"
+          {...register('username', { required: 'Username is required' })}
+          className={clsx(
+            "py-3 pr-4 pl-12 rounded-xl focus:outline-none w-full transition-all duration-300 placeholder-gray-500",
+            textColor,
+            bgInput,
+            accentColor
           )}
-        </div>
+          placeholder="Enter Username"
+        />
+        {errors.username && <p className="mt-1 text-red-500 text-xs">{errors.username?.message}</p>}
+      </motion.div>
 
-        <div>
-          <label className='block ml-3 text-[#17224d]'>Email Address :</label>
-          <input
-            type='email'
-            {...register('email', {
-              required: 'Email is required',
-              pattern: {
-                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                message: 'Invalid email format'
-              }
-            })}
-            className='bg-white mt-2 px-4 py-2 border focus:border-blue-400 rounded-3xl focus:outline-none focus:ring w-full'
-          />
-          {errors.email && (
-            <p className='text-red-500 text-sm'>{errors.email?.message}</p>
+      {/* Email */}
+      <motion.div
+        initial={{ x: -50, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.4, duration: 0.5 }}
+        whileHover={{ scale: 1.02 }}
+        className="group relative"
+      >
+        <FaEnvelope className="top-1/2 left-4 absolute text-[#F9F51A] -translate-y-1/2" />
+        <input
+          type="email"
+          {...register('email', {
+            required: 'Email is required',
+            pattern: {
+              value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+              message: 'Invalid email format'
+            }
+          })}
+          className={clsx(
+            "py-3 pr-4 pl-12 rounded-xl focus:outline-none w-full transition-all duration-300 placeholder-gray-500",
+            textColor,
+            bgInput,
+            accentColor
           )}
-        </div>
+          placeholder="Enter Email"
+        />
+        {errors.email && <p className="mt-1 text-red-500 text-xs">{errors.email?.message}</p>}
+      </motion.div>
 
-        <div>
-          <label className='block ml-3 text-[#17224d]'>Password</label>
-          <input
-            type='password'
-            {...register('password', {
-              required: 'Password is required',
-              minLength: {
-                value: 6,
-                message: 'Password must be at least 6 characters long'
-              }
-            })}
-            className='bg-white mt-2 px-4 py-2 border focus:border-blue-400 rounded-3xl focus:outline-none focus:ring w-full'
-          />
-          {errors.password && (
-            <p className='text-red-500 text-sm'>{errors.password?.message}</p>
+      {/* Password */}
+      <motion.div
+        initial={{ x: -50, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.6, duration: 0.5 }}
+        whileHover={{ scale: 1.02 }}
+        className="group relative"
+      >
+        <FaLock className="top-1/2 left-4 absolute text-[#F9F51A] -translate-y-1/2" />
+        <input
+          type="password"
+          {...register('password', {
+            required: 'Password is required',
+            minLength: {
+              value: 6,
+              message: 'Password must be at least 6 characters long'
+            }
+          })}
+          className={clsx(
+            "py-3 pr-4 pl-12 rounded-xl focus:outline-none w-full transition-all duration-300 placeholder-gray-500",
+            textColor,
+            bgInput,
+            accentColor
           )}
-        </div>
+          placeholder="Enter Password"
+        />
+        {errors.password && <p className="mt-1 text-red-500 text-xs">{errors.password?.message}</p>}
+      </motion.div>
 
-        <button
-          type='submit'
-          className='bg-blue-700 hover:bg-blue-700 mt-2 py-2 rounded-3xl w-full font-bold text-white transition'
-        >
-          Log In
-        </button>
-      </form>
-    </div>
+      {/* Submit Button */}
+      <motion.button
+        type="submit"
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.8, duration: 0.5 }}
+        whileHover={{ scale: 1.05, boxShadow: '0 0 25px rgba(249, 245, 26, 0.8)' }}
+        className="bg-[#F9F51A] py-3 rounded-xl w-full font-bold text-black hover:text-[#8d8d7b] transition-all duration-300"
+      >
+        Log In Now
+      </motion.button>
+    </form>
   )
 }

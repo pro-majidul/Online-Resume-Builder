@@ -1,6 +1,7 @@
 import SectionHeading from "./shared/SectionHeading";
 import SwiperComponent from "./silder/SwiperComponent";
 import CustomButton from "./shared/CustomButton";
+import Link from "next/link";
 
 const Templates = () => {
     return (
@@ -26,7 +27,9 @@ const Templates = () => {
                 </div>
     
                 <div className="flex justify-center my-5">
+                   <Link href={'/resumeTemplates'} >
                     <CustomButton title={'Explore All Templates'} />
+                   </Link>
                 </div>
             </div>
         </section>
