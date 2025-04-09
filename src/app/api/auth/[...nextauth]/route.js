@@ -19,14 +19,26 @@ export const authOptions = {
       },
       async authorize(credentials, req) {
         console.log(credentials);
-        // Add logic here to look up the user from the credentials supplied
-        const user = await loginUser(credentials)
-        console.log(user);
+        
+        const response = await loginUser(credentials);
 
-        if (!user) {
-          throw new Error("Invalid email or password");
+        // If login fails, throw an error with detailed message
+        if (!response.success) {
+          throw new Error(
+            JSON.stringify({
+              message: response.error,
+              remainingAttempts: response.remainingAttempts,
+              isLocked: response.isLocked,
+              lockoutTime: response.lockoutTime,
+            })
+          );
         }
-        return user;
+
+        // Return user object on success
+        return {
+          id: response.user.id,
+          email: response.user.email,
+        };
       }
     }),
     GoogleProvider({
@@ -41,8 +53,14 @@ export const authOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   debug: true,
   pages: {
-    signIn: "/loginPage"
-  }
+    signIn: "/loginPage",
+  },
+  callbacks: {
+    async session({ session, token }) {
+      session.user.id = token.sub; // Add user ID to session
+      return session;
+    },
+  },
 }
 
 
