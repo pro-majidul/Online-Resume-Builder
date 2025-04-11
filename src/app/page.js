@@ -5,16 +5,18 @@ import Hero from "@/components/Hero";
 import Templates from "@/components/Templates";
 import Testimonial from "@/components/Testimonial";
 import AiPowerAssistant from "@/components/AiPowerAssistant";
+import EidGreetingModal from "@/components/modals/EidGreetingModal";
 
 
 export default async function Home() {
   
   return (
     <div className=" ">
+      {/* Add the Eid Greeting Modal */}
+      <EidGreetingModal />
+
       {/* Hero/Banner section */}
       <div className="container mx-auto ">
-        {/* <UserInfo></UserInfo>
-        {JSON.stringify(session)} */}
         <Hero></Hero>
       </div>
 

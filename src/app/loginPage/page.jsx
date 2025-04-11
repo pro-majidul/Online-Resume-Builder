@@ -5,8 +5,9 @@ import { motion } from 'framer-motion'
 import LoginForm from './components/LoginForm'
 import SocialLogin from './components/SocialLogin'
 import { useTheme } from '@/components/Context/ThemeContext'
+import Link from 'next/link'
 
-export default function Login () {
+export default function Login() {
   const { theme } = useTheme()
 
   // Theme-specific styles based on your colors
@@ -63,6 +64,10 @@ export default function Login () {
           {/* Login Form */}
           <LoginForm />
 
+          <div className='flex py-2 space-x-1'>
+            <p>Forget Your Password?</p>
+            <Link href='/request-reset' className='hover:underline hover:text-red-600'>reset password</Link>
+          </div>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
