@@ -28,6 +28,12 @@ const ResumeTemplates = () => {
 
   const templates = [
     { 
+      image: '/picture/c2.jpg', 
+      category: 'Professional', 
+      name: 'Neo Executive',
+      features: ['ATS optimized', '2-page layout', 'Skills visualization']
+    },
+    { 
       image: '/picture/c7.jpg', 
       category: 'Modern', 
       name: 'Neo Executive',
