@@ -1,9 +1,11 @@
 import axios from "axios";
 
+
 const API = axios.create({
-  baseURL: "https://resume-builder-website-server-side.vercel.app/api/auth",
-  // baseURL: "http://localhost:5000/api/auth", // Your Express.js backend URL
-  withCredentials: true, // Send cookies for authentication
+  baseURL: process.env.NODE_ENV === 'production' 
+    ? 'https://resume-builder-website-server-side.vercel.app/api/auth' 
+    : 'http://localhost:5000/api/auth',
+  withCredentials: true,
 });
 
 // Register User
