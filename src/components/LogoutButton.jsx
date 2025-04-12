@@ -2,17 +2,31 @@
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React from "react";
+import { toast } from "sonner";
 
 export default function LogoutButton() {
   const router = useRouter();
 
   const handleLogout = async () => {
     await signOut({ redirect: false }); // Prevents immediate redirection
-    router.push("/"); // Redirects user to home page after logout
+    
+    // Show toast notification using sonner
+    toast.success("Successfully logged out", {
+      description: "You have been safely logged out of your account",
+      duration: 3000,
+    });
+    
+    // Short delay before redirecting for better UX
+    setTimeout(() => {
+      router.push("/"); // Redirects user to home page after logout
+    }, 1500);
   };
 
   return (
-    <button onClick={handleLogout} className="group inline-flex relative items-center space-x-2 bg-[#FEDBFF] px-4 py-2 rounded-full w-fit overflow-hidden font-medium text-gray-800 text-sm">
+    <button 
+      onClick={handleLogout} 
+      className="group inline-flex relative items-center space-x-2 bg-[#FEDBFF] px-4 py-2 rounded-full w-fit overflow-hidden font-medium text-gray-800 text-sm"
+    >
       <span className="z-10 relative">Log Out</span>
 
       {/* Background Animation */}
