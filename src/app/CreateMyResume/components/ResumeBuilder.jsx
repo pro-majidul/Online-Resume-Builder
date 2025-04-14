@@ -4,6 +4,8 @@ import { useTheme } from "@/components/Context/ThemeContext";
 import ResumeForm from "./ResumeInputForm";
 import ResumePreview from "./ResumePreview";
 import ResumePDFGenerator from "./ResumePDFGen";
+// import AiFeedbackScore from "./ReumeAiSugg/AiFeedbackScore";
+import ReumeFeedBack from "./ReumeFeedBack/ReumeFeedBack";
 
 const ResumeBuilder = () => {
   const { theme } = useTheme();
@@ -36,7 +38,15 @@ const ResumeBuilder = () => {
 
   return (
     <div className={`p-4 md:p-8 max-w-7xl mx-auto flex flex-col md:flex-row gap-8 ${containerBg}`}>
+
+     
+
+
       <div className="w-full md:w-[65%]">
+      <div className="flex gap-4 mb-4">
+        <ReumeFeedBack formData={formData} ></ReumeFeedBack>
+      </div>
+
         <h2 className={`text-3xl font-bold mb-6 text-center ${textColor}`}>Build Your Resume</h2>
         <div className="mb-6 flex justify-center space-x-2">
           {[1, 2, 3, 4, 5, 6, 7, 8].map((s) => (
