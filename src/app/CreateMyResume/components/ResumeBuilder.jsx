@@ -6,6 +6,7 @@ import ResumePreview from "./ResumePreview";
 import ResumePDFGenerator from "./ResumePDFGen";
 // import AiFeedbackScore from "./ReumeAiSugg/AiFeedbackScore";
 import ReumeFeedBack from "./ReumeFeedBack/ReumeFeedBack";
+import AiAgent from "./AiGenForResume/AiAgent";
 
 const ResumeBuilder = () => {
   const { theme } = useTheme();
@@ -45,6 +46,7 @@ const ResumeBuilder = () => {
       <div className="w-full md:w-[65%]">
       <div className="flex gap-4 mb-4">
         <ReumeFeedBack formData={formData} ></ReumeFeedBack>
+        <AiAgent formData={formData}></AiAgent>
       </div>
 
         <h2 className={`text-3xl font-bold mb-6 text-center ${textColor}`}>Build Your Resume</h2>

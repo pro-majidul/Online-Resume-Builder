@@ -60,62 +60,127 @@ const ResumeForm = ({ step, formData, setFormData, nextStep, prevStep }) => {
     <form className="space-y-4">
       {/* Step 1: Personal Info */}
       {step === 1 && (
-        <div className={`p-4 md:p-6 rounded-lg ${cardBg} shadow-md`}>
-          <h3 className={`text-xl font-semibold mb-4 ${textColor}`}>Personal Information</h3>
-          {["firstName", "lastName", "email", "phone", "country", "city"].map((field, index) => (
-            <div key={index} className="mb-3">
-              <label className={`block text-sm font-medium ${textColor}`}>
-                {field.replace(/([A-Z])/g, " $1").replace(/^./, (str) => str.toUpperCase())}
-                {["firstName", "email"].includes(field) && <span className="text-red-500">*</span>}
-              </label>
-              <input
-                type={field === "email" ? "email" : "text"}
-                name={field}
-                value={formData[field]}
-                onChange={handleChange}
-                className={`mt-1 w-full p-2 border rounded-md ${inputBg} ${inputBorder} ${textColor} focus:ring-[#F9F51A] focus:border-[#F9F51A]`}
-                placeholder={`Enter your ${field.replace(/([A-Z])/g, " $1").toLowerCase()}`}
-                required={["firstName", "email"].includes(field)}
-              />
-            </div>
-          ))}
-          <div className="mb-3">
-            <h4 className={`text-sm font-medium ${textColor} mb-2`}>Social Links</h4>
-            {formData.social.map((social, index) => (
-              <div key={index} className="flex flex-col md:flex-row gap-2 mb-2">
-                <input
-                  type="text"
-                  value={social.platform}
-                  onChange={(e) => updateField("social", index, { ...social, platform: e.target.value })}
-                  className={`w-full md:w-1/3 p-2 border rounded-md ${inputBg} ${inputBorder} ${textColor} focus:ring-[#F9F51A] focus:border-[#F9F51A]`}
-                  placeholder="Platform (e.g., LinkedIn)"
-                />
-                <input
-                  type="url"
-                  value={social.url}
-                  onChange={(e) => updateField("social", index, { ...social, url: e.target.value })}
-                  className={`w-full md:w-2/3 p-2 border rounded-md ${inputBg} ${inputBorder} ${textColor} focus:ring-[#F9F51A] focus:border-[#F9F51A]`}
-                  placeholder="URL"
-                />
-                <button
-                  type="button"
-                  onClick={() => removeField("social", index)}
-                  className="text-red-500 hover:text-red-600 self-start mt-2 md:mt-0"
-                >
-                  ✕
-                </button>
-              </div>
-            ))}
-            <button
-              type="button"
-              onClick={() => addField("social")}
-              className={`mt-2 ${buttonBg} ${buttonText} px-3 py-1.5 rounded-md text-sm`}
-            >
-              + Add Social Link
-            </button>
-          </div>
+  <div className={`p-4 md:p-6 rounded-lg ${cardBg} shadow-md`}>
+    <h3 className={`text-xl font-semibold mb-4 ${textColor}`}>Personal Information</h3>
+    {/* First Name and Last Name in one row */}
+    <div className="flex flex-col md:flex-row gap-3 mb-3">
+      <div className="flex-1">
+        <label className={`block text-sm font-medium ${textColor}`}>
+          First Name <span className="text-red-500">*</span>
+        </label>
+        <input
+          type="text"
+          name="firstName"
+          value={formData.firstName}
+          onChange={handleChange}
+          className={`mt-1 w-full p-2 border rounded-md ${inputBg} ${inputBorder} ${textColor} focus:ring-[#F9F51A] focus:border-[#F9F51A]`}
+          placeholder="Enter your first name"
+          required
+        />
+      </div>
+      <div className="flex-1">
+        <label className={`block text-sm font-medium ${textColor}`}>Last Name</label>
+        <input
+          type="text"
+          name="lastName"
+          value={formData.lastName}
+          onChange={handleChange}
+          className={`mt-1 w-full p-2 border rounded-md ${inputBg} ${inputBorder} ${textColor} focus:ring-[#F9F51A] focus:border-[#F9F51A]`}
+          placeholder="Enter your last name"
+        />
+      </div>
+    </div>
+    {/* Email and Phone in one row */}
+    <div className="flex flex-col md:flex-row gap-3 mb-3">
+      <div className="flex-1">
+        <label className={`block text-sm font-medium ${textColor}`}>
+          Email <span className="text-red-500">*</span>
+        </label>
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          className={`mt-1 w-full p-2 border rounded-md ${inputBg} ${inputBorder} ${textColor} focus:ring-[#F9F51A] focus:border-[#F9F51A]`}
+          placeholder="Enter your email"
+          required
+        />
+      </div>
+      <div className="flex-1">
+        <label className={`block text-sm font-medium ${textColor}`}>Phone</label>
+        <input
+          type="text"
+          name="phone"
+          value={formData.phone}
+          onChange={handleChange}
+          className={`mt-1 w-full p-2 border rounded-md ${inputBg} ${inputBorder} ${textColor} focus:ring-[#F9F51A] focus:border-[#F9F51A]`}
+          placeholder="Enter your phone"
+        />
+      </div>
+    </div>
+    {/* Country and City in one row */}
+    <div className="flex flex-col md:flex-row gap-3 mb-3">
+      <div className="flex-1">
+        <label className={`block text-sm font-medium ${textColor}`}>Country</label>
+        <input
+          type="text"
+          name="country"
+          value={formData.country}
+          onChange={handleChange}
+          className={`mt-1 w-full p-2 border rounded-md ${inputBg} ${inputBorder} ${textColor} focus:ring-[#F9F51A] focus:border-[#F9F51A]`}
+          placeholder="Enter your country"
+        />
+      </div>
+      <div className="flex-1">
+        <label className={`block text-sm font-medium ${textColor}`}>City</label>
+        <input
+          type="text"
+          name="city"
+          value={formData.city}
+          onChange={handleChange}
+          className={`mt-1 w-full p-2 border rounded-md ${inputBg} ${inputBorder} ${textColor} focus:ring-[#F9F51A] focus:border-[#F9F51A]`}
+          placeholder="Enter your city"
+        />
+      </div>
+    </div>
+    {/* Social Links */}
+    <div className="mb-3">
+      <h4 className={`text-sm font-medium ${textColor} mb-2`}>Social Links</h4>
+      {formData.social.map((social, index) => (
+        <div key={index} className="flex flex-col md:flex-row gap-2 mb-2">
+          <input
+            type="text"
+            value={social.platform}
+            onChange={(e) => updateField("social", index, { ...social, platform: e.target.value })}
+            className={`w-full md:w-1/3 p-2 border rounded-md ${inputBg} ${inputBorder} ${textColor} focus:ring-[#F9F51A] focus:border-[#F9F51A]`}
+            placeholder="Platform (e.g., LinkedIn)"
+          />
+          <input
+            type="url"
+            value={social.url}
+            onChange={(e) => updateField("social", index, { ...social, url: e.target.value })}
+            className={`w-full md:w-2/3 p-2 border rounded-md ${inputBg} ${inputBorder} ${textColor} focus:ring-[#F9F51A] focus:border-[#F9F51A]`}
+            placeholder="URL"
+          />
+          <button
+            type="button"
+            onClick={() => removeField("social", index)}
+            className="text-red-500 hover:text-red-600 self-start mt-2 md:mt-0"
+          >
+            ✕
+          </button>
         </div>
-      )}
+      ))}
+      <button
+        type="button"
+        onClick={() => addField("social")}
+        className={`mt-2 ${buttonBg} ${buttonText} px-3 py-1.5 rounded-md text-sm`}
+      >
+        + Add Social Link
+      </button>
+    </div>
+  </div>
+)}
 
       {/* Step 2: Education */}
       {step === 6 && (
