@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "@google/generative-ai": "^0.24.0",
     "@radix-ui/react-slot": "^1.1.2",
     "@react-icons/all-files": "^4.1.0",
     "@resumerealm/open-resume-format": "^0.0.1",
