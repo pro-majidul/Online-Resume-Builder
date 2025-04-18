@@ -12,7 +12,6 @@ import ReferencesForm from '@/components/builder/forms/ReferencesForm'
 
 export default function BuilderPage() {
   const searchParams = useSearchParams()
-  const router = useRouter()
   const template = searchParams.get('template') || 'professional'
   
   const [resumeData, setResumeData] = useState({

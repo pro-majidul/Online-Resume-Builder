@@ -15,8 +15,6 @@ import {
   MagnifyingGlassPlusIcon,
   CheckIcon
 } from '@heroicons/react/24/outline'
-// import ModernTemplate from "./templates/Modern"
-// import ProfessionalTemplate from "./templates/Professional"
 import html2canvas from 'html2canvas'
 import { jsPDF } from 'jspdf'
 import { toast } from 'react-hot-toast'
@@ -273,8 +271,7 @@ export default function ResumePreview({ template, data }) {
                 overflow: 'hidden'
               }}
             >
-              {/* {selectedTemplate === 'professional' && <ProfessionalTemplate data={data} />}
-              {selectedTemplate === 'modern' && <ModernTemplate data={data} />} */}
+             {/* shows template heare */}
             </div>
           </div>
         </div>
