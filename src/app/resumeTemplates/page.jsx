@@ -2,7 +2,6 @@
 import React from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-// Update your imports at the top of the file
 import { XMarkIcon as XIcon, CheckCircleIcon } from '@heroicons/react/24/outline'
 import { motion } from 'framer-motion'
 import ParallaxHeader from '@/components/shared/ParallaxHeader'
@@ -19,14 +18,12 @@ const ResumeTemplates = () => {
   // Theme-specific styles
   const bgColor = theme === 'light' ? 'bg-white' : 'bg-gray-900'
   const textColor = theme === 'light' ? 'text-gray-900' : 'text-gray-100'
-  const secondaryColor =
-    theme === 'light' ? 'bg-purple-100' : 'bg-purple-900/30'
+  const secondaryColor = theme === 'light' ? 'bg-purple-100' : 'bg-purple-900/30'
   const accentColor = theme === 'light' ? 'text-gray-700' : 'text-gray-300'
   const primaryColor = 'bg-yellow-400'
   const cardBg = theme === 'light' ? 'bg-white' : 'bg-gray-800'
   const borderColor = theme === 'light' ? 'border-gray-200' : 'border-gray-700'
-  const hoverBorderColor =
-    theme === 'light' ? 'hover:border-yellow-400' : 'hover:border-yellow-300'
+  const hoverBorderColor = theme === 'light' ? 'hover:border-yellow-400' : 'hover:border-yellow-300'
 
   const categories = [
     {
@@ -55,7 +52,7 @@ const ResumeTemplates = () => {
     {
       image: '/picture/c2.jpg',
       category: 'Professional',
-      name: 'Neo Executive',
+      name: 'Formal',
       features: ['ATS optimized', '2-page layout', 'Skills visualization']
     },
     {
