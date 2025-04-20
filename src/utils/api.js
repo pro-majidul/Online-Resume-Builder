@@ -7,10 +7,10 @@ import axios from "axios";
 //     : 'http://localhost:5000/api/auth',
 //   withCredentials: true,
 // });
-
+// console.log("process.env.NEXTAUTH_URL" , `${process.env.NEXTAUTH_URL}`)
 const API = axios.create({
-    baseURL:process.env.NEXTAUTH_URL,
-    // baseURL:'https://resume-builder-website-server-side.vercel.app/api/auth',
+  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
+    
     withCredentials: true,
   });
 
