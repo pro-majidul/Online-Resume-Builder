@@ -14,6 +14,10 @@ pnpm dev
 bun dev
 ```
 
+```
+NEXTAUTH_URL='http://localhost:5000/api/auth'
+# NEXTAUTH_URL=https://resume-builder-website-server-side.vercel.app/api/auth
+```
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
