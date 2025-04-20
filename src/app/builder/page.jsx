@@ -1,6 +1,6 @@
 'use client'
-import { useState } from 'react'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useState, Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
 import BuilderLayout from '@/components/builder/BuilderLayout'
 import ResumePreview from '@/components/builder/ResumePreview'
 import PersonalInfoForm from '@/components/builder/forms/PersonalInfoForm'
@@ -9,8 +9,10 @@ import EducationForm from '@/components/builder/forms/EducationForm'
 import SkillsForm from '@/components/builder/forms/SkillsForm'
 import LanguagesForm from '@/components/builder/forms/LanguagesForm'
 import ReferencesForm from '@/components/builder/forms/ReferencesForm'
+import Loading from '@/components/shared/Loading' // Create a loading component
 
-export default function BuilderPage() {
+// Wrap the component that uses useSearchParams in a Suspense boundary
+function BuilderPageContent() {
   const searchParams = useSearchParams()
   const template = searchParams.get('template') || 'professional'
   
@@ -109,5 +111,14 @@ export default function BuilderPage() {
         </div>
       </div>
     </BuilderLayout>
+  )
+}
+
+// Main exported component with Suspense
+export default function BuilderPage() {
+  return (
+    <Suspense fallback={<Loading />}>
+      <BuilderPageContent />
+    </Suspense>
   )
 }

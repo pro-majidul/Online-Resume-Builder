@@ -50,24 +50,28 @@ const ResumeTemplates = () => {
 
   const templates = [
     {
+      id:1,
       image: '/picture/c2.jpg',
       category: 'Professional',
       name: 'Formal',
       features: ['ATS optimized', '2-page layout', 'Skills visualization']
     },
     {
+      id:2,
       image: '/picture/c7.jpg',
       category: 'Modern',
       name: 'Neo Executive',
       features: ['ATS optimized', '2-page layout', 'Skills visualization']
     },
     {
+      id:3,
       image: '/picture/c8.jpg',
       category: 'Creative',
       name: 'Portfolio Hybrid',
       features: ['Project showcase', 'Visual elements', 'Personal branding']
     },
     {
+      id:4,
       image: '/picture/c4.jpg',
       category: 'Professional',
       name: 'Corporate Classic',
@@ -78,12 +82,14 @@ const ResumeTemplates = () => {
       ]
     },
     {
+      id:5,
       image: '/picture/c5.jpg',
       category: 'Minimalist',
       name: 'Essential',
       features: ['Single page', 'Clean typography', 'Content-focused']
     },
     {
+      id:6,
       image: '/picture/c6.jpg',
       category: 'Modern',
       name: 'Tech Pro',
@@ -573,7 +579,7 @@ const ResumeTemplates = () => {
                       setIsPreviewOpen(false)
                       router.push(
                         `/builder?template=${encodeURIComponent(
-                          selectedTemplate.name
+                          selectedTemplate.id
                         )}`
                       )
                     }}
