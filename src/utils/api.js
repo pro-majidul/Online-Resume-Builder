@@ -9,7 +9,8 @@ import axios from "axios";
 // });
 
 const API = axios.create({
-    baseURL:'https://resume-builder-website-server-side.vercel.app/api/auth',
+    baseURL:process.env.NEXTAUTH_URL,
+    // baseURL:'https://resume-builder-website-server-side.vercel.app/api/auth',
     withCredentials: true,
   });
 
