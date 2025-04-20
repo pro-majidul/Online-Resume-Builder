@@ -116,7 +116,6 @@ const Page = () => {
 
         </div>
       </div>
-          {/* <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos modi repellendus suscipit minima, totam deserunt assumenda vitae quod dolor natus itaque sequi.</h2> */}
     </div>
   );
 };

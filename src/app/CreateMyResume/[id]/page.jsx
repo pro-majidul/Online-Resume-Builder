@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import ResumeForm from "../components/ResumeForm";
+import ResumeForm from "../components/ResumeBuilder";
 
 const ResumeBuilder = () => {
   const [userId] = useState("user123"); // Example static user ID
