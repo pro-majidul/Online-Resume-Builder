@@ -15,8 +15,8 @@ bun dev
 ```
 
 ```
-NEXTAUTH_URL='http://localhost:5000/api/auth'
-# NEXTAUTH_URL=https://resume-builder-website-server-side.vercel.app/api/auth
+NEXT_PUBLIC_API_BASE_URL='http://localhost:5000/api/auth'
+# NEXT_PUBLIC_API_BASE_URL=https://resume-builder-website-server-side.vercel.app/api/auth
 ```
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
