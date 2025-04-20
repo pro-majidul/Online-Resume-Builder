@@ -51,6 +51,7 @@ export const authOptions = {
     })
   ],
   secret: process.env.NEXTAUTH_SECRET,
+  // Debug mode 
   debug: true,
   pages: {
     signIn: "/loginPage",
