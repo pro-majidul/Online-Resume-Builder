@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import NextAuthSeassionProvider from "@/Providers/NextAuthSeassionProvider";
 import { ThemeProvider } from "@/components/Context/ThemeContext";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider>
           <NextAuthSeassionProvider>
+          <Toaster richColors />
             <Navbar />
             <main className="min-h-screen">{children}</main>
             <Footer />

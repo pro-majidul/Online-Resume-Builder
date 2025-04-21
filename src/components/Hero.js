@@ -67,7 +67,7 @@ const Hero = () => {
         </p>
 
         <div className="flex items-center gap-2">
-          <Link href="/">
+          <Link href="/CreateMyResume">
             <CustomButton title="Create your Resume" />
           </Link>
 
