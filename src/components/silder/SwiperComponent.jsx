@@ -8,18 +8,10 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const SwiperComponent = () => {
-<<<<<<< HEAD
-  const [selectedTemplate, setSelectedTemplate] = useState([]);
-
-  const fetchTemplate = async () => {
-    // const res = await fetch("https://resume-builder-website-server-side.vercel.app/api/template/template")
-    const res = await fetch("http://localhost:5000/api/template/template");
-=======
   const [selectedTemplate, setSelectedTemplate]= useState([])
   const fetchTemplate=async()=>{
-    // const res = await fetch("https://resume-builder-website-server-side.vercel.app/api/template/template")
-    const res = await fetch("http://localhost:5000/api/template/template")
->>>>>>> 6b08b081da070ce47cffc678d81c33bd32721372
+    const res = await fetch("https://resume-builder-website-server-side.vercel.app/api/template/template")
+    // const res = await fetch("http://localhost:5000/api/template/template")
     const data = await res.json();
     setSelectedTemplate(data);
   };

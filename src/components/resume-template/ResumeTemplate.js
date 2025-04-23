@@ -10,8 +10,8 @@ const ResumeTemplate = () => {
   console.log(id)
    const [selectedTemplate, setSelectedTemplate]= useState({})
     const fetchTemplate=async()=>{
-      // const res = await fetch(`https://resume-builder-website-server-side.vercel.app/api/template/template/${id}`)
-      const res = await fetch(`http://localhost:5000/api/template/template/${id}`)
+      const res = await fetch(`https://resume-builder-website-server-side.vercel.app/api/template/template/${id}`)
+      // const res = await fetch(`http://localhost:5000/api/template/template/${id}`)
       const data = await res.json();
      setSelectedTemplate(data)
     };
