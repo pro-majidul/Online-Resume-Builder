@@ -1,17 +1,18 @@
 import axios from "axios";
 
 
-const API = axios.create({
-  baseURL: process.env.NODE_ENV === 'production' 
-    ? 'https://resume-builder-website-server-side.vercel.app/api/auth' 
-    : 'http://localhost:5000/api/auth',
-  withCredentials: true,
-});
-
 // const API = axios.create({
-//     baseURL:'https://resume-builder-website-server-side.vercel.app/api/auth',
-//     withCredentials: true,
-//   });
+//   baseURL: process.env.NODE_ENV === 'production' 
+//     ? 'https://resume-builder-website-server-side.vercel.app/api/auth' 
+//     : 'http://localhost:5000/api/auth',
+//   withCredentials: true,
+// });
+// console.log("process.env.NEXTAUTH_URL" , `${process.env.NEXTAUTH_URL}`)
+const API = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
+    
+    withCredentials: true,
+  });
 
 // Register User
 export const registerUser = async (userData) => {
