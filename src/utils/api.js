@@ -1,17 +1,17 @@
 import axios from "axios";
 
 
-// const API = axios.create({
-//   baseURL: process.env.NODE_ENV === 'production' 
-//     ? 'https://resume-builder-website-server-side.vercel.app/api/auth' 
-//     : 'http://localhost:5000/api/auth',
-//   withCredentials: true,
-// });
-
 const API = axios.create({
-    baseURL:'https://resume-builder-website-server-side.vercel.app/api/auth',
-    withCredentials: true,
-  });
+  baseURL: process.env.NODE_ENV === 'production' 
+    ? 'https://resume-builder-website-server-side.vercel.app/api/auth' 
+    : 'http://localhost:5000/api/auth',
+  withCredentials: true,
+});
+
+// const API = axios.create({
+//     baseURL:'https://resume-builder-website-server-side.vercel.app/api/auth',
+//     withCredentials: true,
+//   });
 
 // Register User
 export const registerUser = async (userData) => {
