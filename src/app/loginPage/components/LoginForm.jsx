@@ -81,7 +81,7 @@ export default function LoginForm() {
         callbackUrl: "/",
         redirect: false,
       });
-
+      console.log("result" , result)
       if (result?.ok) {
         Swal.fire({
           title: "Successfully Logged In!",
@@ -133,9 +133,8 @@ export default function LoginForm() {
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          className={`p-3 rounded-lg ${theme === "light" ? "bg-red-100" : "bg-red-900/30"} border ${
-            theme === "light" ? "border-red-200" : "border-red-700"
-          } flex items-start gap-3`}
+          className={`p-3 rounded-lg ${theme === "light" ? "bg-red-100" : "bg-red-900/30"} border ${theme === "light" ? "border-red-200" : "border-red-700"
+            } flex items-start gap-3`}
         >
           <FaLock className={`mt-1 flex-shrink-0 ${errorColor}`} />
           <div>
@@ -152,9 +151,8 @@ export default function LoginForm() {
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          className={`p-3 rounded-lg ${theme === "light" ? "bg-amber-100" : "bg-amber-900/30"} border ${
-            theme === "light" ? "border-amber-200" : "border-amber-700"
-          } flex items-start gap-3`}
+          className={`p-3 rounded-lg ${theme === "light" ? "bg-amber-100" : "bg-amber-900/30"} border ${theme === "light" ? "border-amber-200" : "border-amber-700"
+            } flex items-start gap-3`}
         >
           <FaLockOpen
             className={`mt-1 flex-shrink-0 ${theme === "light" ? "text-amber-600" : "text-amber-400"}`}
@@ -244,9 +242,9 @@ export default function LoginForm() {
         whileHover={
           !isLocked
             ? {
-                scale: 1.05,
-                boxShadow: "0 0 25px rgba(249, 245, 26, 0.8)",
-              }
+              scale: 1.05,
+              boxShadow: "0 0 25px rgba(249, 245, 26, 0.8)",
+            }
             : {}
         }
         className={clsx(

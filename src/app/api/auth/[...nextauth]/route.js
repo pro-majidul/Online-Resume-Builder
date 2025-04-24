@@ -18,9 +18,9 @@ export const authOptions = {
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials, req) {
-        console.log(credentials);
         
         const response = await loginUser(credentials);
+        // console.log("response" , response);
 
         // If login fails, throw an error with detailed message
         if (!response.success) {
