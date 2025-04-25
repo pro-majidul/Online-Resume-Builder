@@ -21,7 +21,7 @@ export const authOptions = {
 
         try {
           const response = await loginUser(credentials);
-          // console.log("response" , response);
+          console.log("response", response);
 
           // If login fails, throw an error with detailed message
           if (!response.success) {
@@ -61,10 +61,19 @@ export const authOptions = {
     signIn: "/loginPage",
   },
   callbacks: {
-    async session({ session, token }) {
-      session.user.id = token.sub; // Add user ID to session
-      return session;
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+        token.email = user.email
+
+      }
+      return token
     },
+    async session({ session, token }) {
+      session.user.id = token.id;
+      session.user.email = token.email;
+      return session;
+    }
   },
 }
 
