@@ -10,14 +10,18 @@ import axios from "axios";
 // console.log("process.env.NEXTAUTH_URL" , `${process.env.NEXTAUTH_URL}`)
 const API = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
-    
-    withCredentials: true,
-  });
+
+  withCredentials: true,
+});
 
 // Register User
 export const registerUser = async (userData) => {
-  const res = await API.post("/signup", userData);
-  return res.data;
+  try {
+    const res = await API.post("/signup", userData);
+    return res.data;
+  } catch (error) {
+    console.log(error)
+  }
 };
 
 
