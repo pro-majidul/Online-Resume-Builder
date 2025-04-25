@@ -18,27 +18,31 @@ export const authOptions = {
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials, req) {
-        
-        const response = await loginUser(credentials);
-        // console.log("response" , response);
 
-        // If login fails, throw an error with detailed message
-        if (!response.success) {
-          throw new Error(
-            JSON.stringify({
-              message: response.error,
-              remainingAttempts: response.remainingAttempts,
-              isLocked: response.isLocked,
-              lockoutTime: response.lockoutTime,
-            })
-          );
+        try {
+          const response = await loginUser(credentials);
+          // console.log("response" , response);
+
+          // If login fails, throw an error with detailed message
+          if (!response.success) {
+            throw new Error(
+              JSON.stringify({
+                message: response.error,
+                remainingAttempts: response.remainingAttempts,
+                isLocked: response.isLocked,
+                lockoutTime: response.lockoutTime,
+              })
+            );
+          }
+
+          // Return user object on success
+          return {
+            id: response.user.id,
+            email: response.user.email,
+          };
+        } catch (error) {
+          console.log(error)
         }
-
-        // Return user object on success
-        return {
-          id: response.user.id,
-          email: response.user.email,
-        };
       }
     }),
     GoogleProvider({
