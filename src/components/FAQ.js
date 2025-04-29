@@ -25,8 +25,12 @@ const FAQ = () => {
           subtitle=" Explore the most common queries and find your answers."
           title="Frequently Asked Questions"
         ></SectionHeading>
-        <div className="space-y-4 md:px-10">
-          <details className="w-full border rounded-lg">
+        <div className="space-y-4 md:px-10 mt-10">
+          <details className={`w-full border rounded-lg hover:bg-yellow-100 transition-all ease-in ${
+          theme === 'light'
+            ? 'bg-gradient-to-r from-purple-50 to-yellow-50'
+            : 'bg-gradient-to-r from-gray-800 to-gray-900'
+        } hover:border-yellow-200`}>
             <summary className={`px-4 py-6 focus:outline-none focus-visible:ring-violet-600 text-lg font-bold ${titletextColor}`}>
               Why should I use a resume Maker?
             </summary>
@@ -49,7 +53,11 @@ const FAQ = () => {
               you’re ready to start applying for jobs!
             </p>
           </details>
-          <details className="w-full border rounded-lg">
+          <details className={`w-full border rounded-lg hover:bg-yellow-100 transition-all ease-in ${
+          theme === 'light'
+            ? 'bg-gradient-to-r from-purple-50 to-yellow-50'
+            : 'bg-gradient-to-r from-gray-800 to-gray-900'
+        } hover:border-yellow-200`}>
             <summary className={`px-4 py-6 focus:outline-none focus-visible:ring-violet-600 text-lg font-bold ${titletextColor}`}>
               What is the best resume builder?
             </summary>
@@ -107,7 +115,11 @@ const FAQ = () => {
               </li>
             </ul>
           </details>
-          <details className="w-full border rounded-lg">
+          <details className={`w-full border rounded-lg hover:bg-yellow-100 transition-all ease-in ${
+          theme === 'light'
+            ? 'bg-gradient-to-r from-purple-50 to-yellow-50'
+            : 'bg-gradient-to-r from-gray-800 to-gray-900'
+        } hover:border-yellow-200`}>
             <summary className={`px-4 py-6 focus:outline-none focus-visible:ring-violet-600 text-lg font-bold ${titletextColor}`}>
               Is this a completely free resume builder?
             </summary>
@@ -127,7 +139,11 @@ const FAQ = () => {
               control!
             </p>
           </details>
-          <details className="w-full border rounded-lg">
+          <details className={`w-full border rounded-lg hover:bg-yellow-100 transition-all ease-in ${
+          theme === 'light'
+            ? 'bg-gradient-to-r from-purple-50 to-yellow-50'
+            : 'bg-gradient-to-r from-gray-800 to-gray-900'
+        } hover:border-yellow-200`}>
             <summary className={`px-4 py-6 focus:outline-none focus-visible:ring-violet-600 text-lg font-bold ${titletextColor}`}>
               What is a resume?
             </summary>
@@ -146,7 +162,11 @@ const FAQ = () => {
               <li>Resume summary or resume objective</li>
             </ul>
           </details>
-          <details className="w-full border rounded-lg">
+          <details className={`w-full border rounded-lg hover:bg-yellow-100  transition-all ease-in ${
+          theme === 'light'
+            ? 'bg-gradient-to-r from-purple-50 to-yellow-50'
+            : 'bg-gradient-to-r from-gray-800 to-gray-900'
+        } hover:border-yellow-200`}>
             <summary className={`px-4 py-6 focus:outline-none focus-visible:ring-violet-600 text-lg font-bold ${titletextColor}`}>
               What is the difference between a CV and a resume?
             </summary>
@@ -162,7 +182,11 @@ const FAQ = () => {
               between CVs and resumes.
             </p>
           </details>
-          <details className="w-full border rounded-lg">
+          <details className={`w-full border rounded-lg hover:bg-yellow-100 transition-all ease-in ${
+          theme === 'light'
+            ? 'bg-gradient-to-r from-purple-50 to-yellow-50'
+            : 'bg-gradient-to-r from-gray-800 to-gray-900'
+        } hover:border-yellow-200`}>
             <summary className={`px-4 py-6 focus:outline-none focus-visible:ring-violet-600 text-lg font-bold ${titletextColor}`}>
               What should a resume include?
             </summary>

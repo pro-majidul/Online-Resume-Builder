@@ -56,7 +56,7 @@ const CreateMyResume = () => {
             {tags.map((tag) => (
               <span
                 key={tag.id}
-                className={`px-4 py-2 text-sm font-medium ${textColor} ${tagBg} ${tagHoverBg} rounded-full cursor-pointer transition duration-300`}
+                className={`px-4 py-2 text-sm font-medium ${textColor} ${tagBg} ${tagHoverBg} rounded-full transition duration-300`}
               >
                 {tag.name}
               </span>
