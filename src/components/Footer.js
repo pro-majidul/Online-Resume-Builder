@@ -9,11 +9,11 @@ import { GrLinkedin } from "react-icons/gr";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import footerlogo from "../../public/picture/applicant.png";
-import { useTheme } from "./Context/ThemeContext"; 
+import { useTheme } from "./Context/ThemeContext";
+import Swal from "sweetalert2";
 
 const Footer = () => {
   const { theme } = useTheme(); // Get the theme from context
-
   // Conditional based on theme
   const footerBg = theme === "light" ? "bg-gray-100" : "bg-gray-800";
   const textColor = theme === "light" ? "text-[#181A1B]" : "text-white";
@@ -21,6 +21,31 @@ const Footer = () => {
     theme === "light" ? "hover:text-black" : "hover:text-gray-400";
   const buttonBg = theme === "light" ? "bg-[#F9F51A]" : "bg-[#333]";
   const buttonText = theme === "light" ? "text-[#181A1B]" : "text-white";
+
+  const handelSubmit = e => {
+    e.preventDefault()
+
+    const email = e.target.email.value;
+    console.log(email.length)
+    if (email.length < 1) {
+      return Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: "Please provide your email address",
+        showConfirmButton: false,
+        timer: 1500
+      });
+    } else {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Subscribe successfull",
+        showConfirmButton: false,
+        timer: 1500
+      });
+    e.target.reset()
+    }
+  }
 
   return (
     <footer
@@ -54,7 +79,7 @@ const Footer = () => {
               Ave Ponce de Leon, Suite 1001 <br />
               San Juan, PR, USA 00907
               <br />
-              <a className="text-black" href="mailto:majidul123tub@gmail.com">
+              <a className="text-black hover:text-red-500" href="mailto:majidul123tub@gmail.com">
                 Email: support@resumebuilder.com
               </a>
             </address>
@@ -67,31 +92,31 @@ const Footer = () => {
             </p>
             <ul className="space-y-1 mt-1">
               <li>
-                <Link className={`text-xl ${linkHoverColor}`} href="/">
+                <Link className={`text-lg ${linkHoverColor}`} href="/">
                   Home
                 </Link>
               </li>
               <li>
-                <Link className={`text-xl ${linkHoverColor}`} href="/myResume">
+                <Link className={`text-lg ${linkHoverColor}`} href="/myResume">
                   My Resume
                 </Link>
               </li>
               <li>
                 <Link
-                  className={`text-xl ${linkHoverColor}`}
+                  className={`text-lg ${linkHoverColor}`}
                   href="/resumeTemplates"
                 >
                   Templates
                 </Link>
               </li>
               <li>
-                <Link className={`text-xl ${linkHoverColor}`} href="/aboutPage">
+                <Link className={`text-lg ${linkHoverColor}`} href="/aboutPage">
                   About Us
                 </Link>
               </li>
               <li>
                 <Link
-                  className={`text-xl ${linkHoverColor}`}
+                  className={`text-lg ${linkHoverColor}`}
                   href="/contactPage"
                 >
                   Contact Us
@@ -103,11 +128,11 @@ const Footer = () => {
             <p className={`pb-1 text-2xl font-medium ${linkHoverColor}`}>
               Subscribe to our newsletter
             </p>
-            <form>
+            <form onSubmit={handelSubmit}>
               <div className="flex w-full max-w-sm items-center space-x-2 my-4">
-                <Input type="email" className="bg-white" placeholder="Email" />
+                <Input type="email" name='email' className="bg-white" placeholder="Email" />
                 <Button
-                  className={`${buttonBg} ${buttonText} hover:bg-[#FEDBFF] px-4 py-2 rounded-md`}
+                  className={`${buttonBg} ${buttonText} hover:bg-[#FEDBFF] cursor-pointer px-4 py-2 rounded-md`}
                   type="submit"
                 >
                   Subscribe
