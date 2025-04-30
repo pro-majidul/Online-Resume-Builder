@@ -49,36 +49,40 @@ const Hero = () => {
   }, [charIndex, currentNews]);
 
   return (
-    <div className="container my-5 px-10 flex flex-col-reverse md:flex-row justify-between items-center">
+    <div className="container w-11/12 lg:w-10/12 mx-auto my-5 md:flex justify-evenly items-center">
       {/* Left Section */}
       <div className="md:w-1/2 text-center md:text-left space-y-2">
-        <p className="flex items-center justify-start -mb-2 text-lg h-14">
+        <p className="hidden md:flex items-center justify-start -mb-2 text-lg h-14">
           <span className="text-3xl animate-pulse">
             <TbPointFilled />
           </span>
           <span className="ml-2">{displayText}</span>
         </p>
 
-        <h2 className="text-3xl md:text-5xl font-bold leading-tight">
+        <h2 className="text-3xl px-5 mt-14 md:mt-8 md:text-4xl lg:text-5xl font-bold leading-tight">
           Your Next Job Starts with a Great Resume
         </h2>
-        <p>
+        <p className=" lg:text-xl mt-8">
           Don’t let a bad resume hold you back. Create a perfect, job-ready resume in minutes and boost your career!
         </p>
 
-        <div className="flex items-center gap-2">
-          <Link href="/CreateMyResume">
-            <CustomButton title="Create your Resume" />
-          </Link>
+        <div className="lg:flex items-center gap-2">
+          <div className="my-4">
+            <Link href="/CreateMyResume">
+              <CustomButton title="Create your Resume" />
+            </Link>
+          </div>
 
-          <Link href="/">
-            <CustomButton title="Import your Resume" />
-          </Link>
+          <div className="my-4">
+            <Link href="/">
+              <CustomButton title="Import your Resume" />
+            </Link>
+          </div>
         </div>
 
         {/* Scrolling Company Logos */}
         <div className="mt-5 w-full">
-          <h2 className="text-lg font-semibold mb-2">Hired by Leading Companies:</h2>
+          <h2 className="text-lg lg:text-2xl font-semibold mt-14">Hired by Leading Companies:</h2>
           <Marquee speed={50} gradient={true} gradientWidth={100}>
             {companyLogos.map((logo, index) => (
               <div key={index} className="mx-4">
@@ -91,12 +95,12 @@ const Hero = () => {
 
       {/* Right Section (Image) */}
       <div className="md:w-1/2 flex justify-center">
-        <div className="relative w-full max-w-md h-auto">
+        <div className="relative w-full max-w-lg h-auto">
           <Image
             src="/picture/banner-cv.png"
             alt="Resume Hero Image"
-            width={500}
-            height={300}
+            width={450}
+            height={270}
             className="w-full h-auto object-cover"
             priority
           />
