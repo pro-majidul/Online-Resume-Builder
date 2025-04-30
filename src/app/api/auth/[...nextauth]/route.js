@@ -18,27 +18,31 @@ export const authOptions = {
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials, req) {
-        console.log(credentials);
-        
-        const response = await loginUser(credentials);
 
-        // If login fails, throw an error with detailed message
-        if (!response.success) {
-          throw new Error(
-            JSON.stringify({
-              message: response.error,
-              remainingAttempts: response.remainingAttempts,
-              isLocked: response.isLocked,
-              lockoutTime: response.lockoutTime,
-            })
-          );
+        try {
+          const response = await loginUser(credentials);
+          console.log("response", response);
+
+          // If login fails, throw an error with detailed message
+          if (!response.success) {
+            throw new Error(
+              JSON.stringify({
+                message: response.error,
+                remainingAttempts: response.remainingAttempts,
+                isLocked: response.isLocked,
+                lockoutTime: response.lockoutTime,
+              })
+            );
+          }
+
+          // Return user object on success
+          return {
+            id: response.user.id,
+            email: response.user.email,
+          };
+        } catch (error) {
+          console.log(error)
         }
-
-        // Return user object on success
-        return {
-          id: response.user.id,
-          email: response.user.email,
-        };
       }
     }),
     GoogleProvider({
@@ -57,10 +61,19 @@ export const authOptions = {
     signIn: "/loginPage",
   },
   callbacks: {
-    async session({ session, token }) {
-      session.user.id = token.sub; // Add user ID to session
-      return session;
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+        token.email = user.email
+
+      }
+      return token
     },
+    async session({ session, token }) {
+      session.user.id = token.id;
+      session.user.email = token.email;
+      return session;
+    }
   },
 }
 

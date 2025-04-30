@@ -50,7 +50,7 @@ export default function SignupForm() {
           password: data.password,
           redirect: false
         })
-
+        console.log("loginResult", loginResult)
         if (loginResult?.ok) {
           router.push('/')
           reset()
