@@ -45,14 +45,14 @@ const Navbar = () => {
   return (
     <div className="h-16">
       <nav
-        className={`fixed top-0 w-full z-50 py-4 px-6 md:px-8 transition-all duration-300 ${navBg}`}
+        className={`fixed top-0 w-full z-50 py-4 px-8 transition-all duration-300 ${navBg}`}
       >
         <div className="container mx-auto flex justify-between items-center lg:grid lg:grid-cols-3">
           {/* Logo */}
           <Link href="/">
             <div className="flex items-center space-x-1">
               <Image src={logo} alt="Logo" width={30} height={30} />
-              <span className="md:text-2xl font-bold italic">Resume Maker</span>
+              <span className="text-2xl font-bold italic">Resume Maker</span>
             </div>
           </Link>
 
@@ -95,7 +95,7 @@ const Navbar = () => {
             {/* Dark Mode Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2 hidden md:block rounded-full bg-[var(--primary-color)] text-[var(--accent-color)]"
+              className="p-2 rounded-full bg-[var(--primary-color)] text-[var(--accent-color)]"
             >
               {theme === "light" ? <MdDarkMode size={24} /> : <MdLightMode size={24} />}
             </button>
